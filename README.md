@@ -12,8 +12,4 @@ Semester 2, Academic year: 2024-2025
 
 **Student Name 2**: Bui Ngoc Truc
 
-**Student ID 3**: B2111978
-
-**Student Name 3**: Kieu Hoang Giang
-
 **Class Number**: M01
