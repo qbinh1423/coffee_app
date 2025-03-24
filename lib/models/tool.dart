@@ -51,17 +51,6 @@ class Tool {
     return toolImage != null || imageUrl.isNotEmpty;
   }
 
-  factory Tool.empty() {
-    return Tool(
-      id: null,
-      name: '',
-      origin: '',
-      imageUrl: '',
-      type: '',
-      material: '',
-      description: '',
-    );
-  }
   Map<String, dynamic> toJson() {
     return {
       'name': name,
@@ -69,6 +58,7 @@ class Tool {
       'type': type,
       'material': material,
       'description': description,
+      'imageUrl': imageUrl,
       'isFavorite': isFavorite,
     };
   }
@@ -76,13 +66,17 @@ class Tool {
   factory Tool.fromJson(Map<String, dynamic> json) {
     return Tool(
       id: json['id'],
-      name: json['name'],
-      origin: json['origin'],
-      type: json['type'],
-      material: json['material'],
-      description: json['description'],
-      isFavorite: json['isFavorite'] ?? false,
+      name: json['name'] ?? '',
+      origin: json['origin'] ?? '',
+      type: json['type'] ?? '',
+      material: json['material'] ?? '',
+      description: json['description'] ?? '',
       imageUrl: json['imageUrl'] ?? '',
     );
+  }
+
+  @override
+  String toString() {
+    return 'Tool(id: $id, name: $name, origin: $origin, type: $type, material: $material, description: $description,  imageUrl: $imageUrl)';
   }
 }

@@ -60,7 +60,7 @@ class _DashboardPageState extends State<DashboardPage> {
           const SizedBox(width: 10),
         ],
       ),
-      drawer: const Admindrawer(),
+      drawer: const AdminDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView.count(

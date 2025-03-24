@@ -81,9 +81,8 @@ class _EditCoffeeBeanState extends State<EditCoffeeBean> {
         const SnackBar(content: Text('Bean saved successfully!')),
       );
       Navigator.pop(context);
-    } catch (error, stackTrace) {
+    } catch (error) {
       debugPrint('Error saving form: $error');
-      print('StackTrace: $stackTrace');
     }
   }
 
@@ -143,7 +142,7 @@ class _EditCoffeeBeanState extends State<EditCoffeeBean> {
           const SizedBox(width: 10),
         ],
       ),
-      drawer: const Admindrawer(),
+      drawer: const AdminDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(

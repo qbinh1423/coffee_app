@@ -13,11 +13,30 @@ import 'package:coffee_app/models/tool.dart';
 import 'toolManager.dart';
 
 class EditBrewingTool extends StatefulWidget {
-  final Tool tool;
-
   static const routeName = '/edit_tool';
 
-  EditBrewingTool({Key? key, required this.tool}) : super(key: key);
+  EditBrewingTool(
+    Tool? tool, {
+    super.key,
+    required String id,
+  }) {
+    if (tool == null) {
+      this.tool = Tool(
+        id: null,
+        name: '',
+        origin: '',
+        type: '',
+        material: '',
+        description: '',
+        imageUrl: '',
+      );
+    } else {
+      this.tool = tool;
+    }
+  }
+
+  late final Tool tool;
+
 
   @override
   State<EditBrewingTool> createState() => _EditBrewingToolState();
@@ -51,25 +70,36 @@ class _EditBrewingToolState extends State<EditBrewingTool> {
     );
   }
 
-  Future<void> _saveForm() async {
-    final isValid = _editForm.currentState!.validate();
+  Future<void> _saveFormTool() async {
+    print('Bắt đầu lưu form');
+    final isValid = _editForm.currentState!.validate() && _editedTool.hasFeaturedImage();
     if (!isValid) {
       return;
     }
     _editForm.currentState!.save();
+        print('Dữ liệu sau khi save: $_editedTool');
+
 
     try {
+      print('Gọi addTool() với dữ liệu: $_editedTool');
+
       final toolManager = context.read<ToolManager>();
-      if (_editedTool.id != null) {
+      if (_editedTool.id != null && _editedTool.id!.isNotEmpty) {
         await toolManager.updateTool(_editedTool);
       } else {
         await toolManager.addTool(_editedTool);
+        print(' Đã gọi thành công addTool() để tạo mới.');
+
       }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Bean saved successfully!')),
+      );
+      
     } catch (error) {
-      if (mounted) {
-        await showErrorDialog(context, 'Something went wrong.');
-      }
+      debugPrint('Error saving form: $error');
     }
+    
 
     if (mounted) {
       Navigator.of(context).pop();
@@ -83,7 +113,7 @@ class _EditBrewingToolState extends State<EditBrewingTool> {
         title: const Text('Edit Tool'),
         actions: <Widget>[
           IconButton(
-            onPressed: _saveForm,
+            onPressed: _saveFormTool,
             icon: const Icon(Icons.save),
           ),
         ],
@@ -100,6 +130,21 @@ class _EditBrewingToolState extends State<EditBrewingTool> {
               _buildMaterialField(),
               _buildDescriptionField(),
               _buildToolPreview(),
+              const SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 12),
+                  ),
+                  onPressed: _saveFormTool,
+                  child: const Text(
+                    'Save',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

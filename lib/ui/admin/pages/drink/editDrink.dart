@@ -1,69 +1,127 @@
+import 'dart:io';
+
+import 'package:coffee_app/models/drink.dart';
+import 'package:coffee_app/ui/admin/pages/drink/drink_manager.dart';
+import 'package:coffee_app/ui/shared/dialog_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../theme/theme.dart';
 import '../../../../theme/themeProvider.dart';
+import '../../../auth/auth_manager.dart';
 import '../../components/adminDrawer.dart';
 
 class EditDrink extends StatefulWidget {
-  final String drinkName;
-  final String imageUrl;
-  final String? tool;
-  final String? origin;
-  final String? caffeine;
-  final String? description;
-  final String? ingredient;
+  static const routeName = '/edit_drink';
 
-  const EditDrink({
+  EditDrink(
+    Drink? drink, {
     super.key,
-    required this.drinkName,
-    required this.imageUrl,
-    this.tool,
-    this.origin,
-    this.caffeine,
-    this.ingredient,
-    this.description,
-  });
+    required String id,
+  }) {
+    if (drink == null) {
+      this.drink = Drink(
+        id: null,
+        name: '',
+        caffeine: '',
+        description: '',
+        origin: '',
+        imageUrl: '', 
+        ingredients: [],
+      );
+    } else {
+      this.drink = drink;
+    }
+  }
+
+  late final Drink drink;
+
 
   @override
   State<EditDrink> createState() => _EditDrinkState();
 }
 
 class _EditDrinkState extends State<EditDrink> {
-  late TextEditingController _nameController;
-  late TextEditingController _originController;
-  late TextEditingController _imageUrlController;
-  late TextEditingController _toolController;
-  late TextEditingController _ingredientController;
-  late TextEditingController _caffeineController;
-  late TextEditingController _descriptionController;
+  final _editForm = GlobalKey<FormState>();
+  late Drink _editedDrink;
 
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.drinkName);
-    _originController = TextEditingController(text: widget.origin ?? '');
-    _imageUrlController = TextEditingController(text: widget.imageUrl);
-    _toolController = TextEditingController(text: widget.tool ?? '');
-    _ingredientController = TextEditingController(text: widget.ingredient ?? '');
-    _caffeineController = TextEditingController(text: widget.caffeine ?? '');
-    _descriptionController =
-        TextEditingController(text: widget.description ?? '');
+    _editedDrink = widget.drink;
   }
 
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _originController.dispose();
-    _imageUrlController.dispose();
-    _toolController.dispose();
-    _ingredientController.dispose();
-    _caffeineController.dispose();
-    _descriptionController.dispose();
-    super.dispose();
+  Future<void> _saveFormDrink() async {
+    print('Bắt đầu lưu form');
+
+    final isValid =
+        _editForm.currentState!.validate() && _editedDrink.hasDrinkImage();
+    print('Form hợp lệ: $isValid');
+
+    if (!isValid) {
+      print('Form không hợp lệ, dừng lại.');
+      return;
+    }
+
+    final userId = context.read<AuthManager>().user?.id;
+    final toolId = _editedDrink.toolId;
+
+    if (userId == null || toolId == null) {
+      print('userId hoặc toolId đang null, dừng lại.');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('User ID hoặc Tool ID không hợp lệ!')),
+      );
+      return;
+    }
+
+    _editForm.currentState!.save();
+    print('Dữ liệu sau khi save: $_editedDrink');
+
+    try {
+      print('Gọi addDrink() với dữ liệu: $_editedDrink');
+
+      final drinkManager = context.read<DrinkManager>();
+      if (_editedDrink.id != null && _editedDrink.id!.isNotEmpty) {
+        await drinkManager.updateDrink(_editedDrink, userId, toolId);
+        print('Drink đã được cập nhật.');
+      } else {
+        await drinkManager.addDrink(_editedDrink, userId, toolId);
+        print('Drink mới đã được tạo.');
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Drink saved successfully!')),
+      );
+      Navigator.pop(context);
+    } catch (error) {
+      debugPrint('Error saving form: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Lỗi khi lưu Drink!')),
+      );
+    }
   }
 
-  @override
+
+  Future<void> showErrorDialog(BuildContext context, String message) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        icon: const Icon(Icons.error),
+        title: const Text('An Error Occurred!'),
+        content: Text(message),
+        actions: <Widget>[
+          ActionButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+    @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<ThemeProvider>(context);
 
@@ -71,7 +129,7 @@ class _EditDrinkState extends State<EditDrink> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          "Edit Drink",
+          "Edit Coffee Bean",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -87,313 +145,199 @@ class _EditDrinkState extends State<EditDrink> {
             },
           ),
         ),
-        actions: [
+        actions: <Widget>[
           ThemeButton(
             changeThemeMode: (isBright) {
               themeProvider.toggleTheme();
             },
           ),
+          const SizedBox(width: 10),
+          const CircleAvatar(
+            radius: 20,
+            backgroundImage: AssetImage('assets/images/avatar.jpg'),
+          ),
+          const SizedBox(width: 10),
         ],
       ),
-      drawer: const Admindrawer(),
+      drawer: const AdminDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Name',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _nameController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter drink name';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter name",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
+        child: Form(
+            key: _editForm,
+            child: ListView(
+              children: <Widget>[
+                _buildNameField(),
+                _buildOriginField(),
+                _builCaffeineField(),
+                _buildDescriptionField(),
+                _buildIngredientsField(),
+                _buildDrinkPreview(),
+                const SizedBox(height: 20),
+                Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 32, vertical: 12),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
+                    onPressed: _saveFormDrink,
+                    child: const Text(
+                      'Save',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Origin',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _originController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter origin';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter origin",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Tool',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _toolController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter tool';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter tool",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Ingredient',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _ingredientController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter ingredient';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter ingredient",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Caffeine',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _caffeineController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter caffeine';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter caffeine",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Description',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _descriptionController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter description';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter description",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: _imageUrlController.text.isNotEmpty
-                        ? ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              _imageUrlController.text,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return const Icon(Icons.image_not_supported,
-                                    size: 50);
-                              },
-                            ),
-                          )
-                        : const Icon(Icons.image, size: 50),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: TextFormField(
-                      controller: _imageUrlController,
-                      validator: (value) {
-                        if ((value == null || value.isEmpty)) {
-                          return 'Please enter image URL';
-                        }
-                        return null;
-                      },
-                      cursorColor: Colors.black,
-                      style: const TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                        hintText: "Enter image URL",
-                        hintStyle: const TextStyle(
-                          color: Colors.black26,
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Colors.black12,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Center(
-                child: ElevatedButton(
-                  style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Color(0xFF416FDF)),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    'Save',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+              ],
+            )),
       ),
     );
   }
+
+  TextFormField _buildNameField() {
+    return TextFormField(
+      initialValue: _editedDrink.name,
+      decoration: const InputDecoration(labelText: 'Name'),
+      textInputAction: TextInputAction.next,
+      autofocus: true,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please provide a name.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedDrink = _editedDrink.copyWith(name: value);
+      },
+    );
+  }
+
+  TextFormField _buildOriginField() {
+    return TextFormField(
+      initialValue: _editedDrink.origin,
+      decoration: const InputDecoration(labelText: 'Origin'),
+      textInputAction: TextInputAction.next,
+      autofocus: true,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please provide a origin.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedDrink = _editedDrink.copyWith(origin: value);
+      },
+    );
+  }
+
+  TextFormField _builCaffeineField() {
+    return TextFormField(
+      initialValue: _editedDrink.caffeine,
+      decoration: const InputDecoration(labelText: 'Caffeine'),
+      textInputAction: TextInputAction.next,
+      autofocus: true,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please provide a caffeine.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedDrink = _editedDrink.copyWith(caffeine: value);
+      },
+    );
+  }
+
+  TextFormField _buildIngredientsField() {
+    return TextFormField(
+      initialValue: _editedDrink.ingredients.join(", "),
+      decoration:
+          const InputDecoration(labelText: 'Ingredients (comma-separated)'),
+      textInputAction: TextInputAction.next,
+      validator: (value) {
+        if (value == null || value.trim().isEmpty) {
+          return 'Please provide ingredients.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        final ingredientsList = value!.split(',').map((e) => e.trim()).toList();
+        _editedDrink = _editedDrink.copyWith(ingredients: ingredientsList);
+      },
+    );
+  }
+
+  TextFormField _buildDescriptionField() {
+    return TextFormField(
+      initialValue: _editedDrink.description,
+      decoration: const InputDecoration(labelText: 'Description'),
+      textInputAction: TextInputAction.next,
+      autofocus: true,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please provide a description.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedDrink = _editedDrink.copyWith(description: value);
+      },
+    );
+  }
+
+  TextButton _buildImagePickerButton() {
+    return TextButton.icon(
+      icon: const Icon(Icons.image),
+      label: const Text('Pick Image'),
+      onPressed: () async {
+        final imagePicker = ImagePicker();
+        try {
+          final imageFile =
+              await imagePicker.pickImage(source: ImageSource.gallery);
+          if (imageFile == null) {
+            return;
+          }
+          setState(() {
+            _editedDrink = _editedDrink.copyWith(drinkImage: File(imageFile.path));
+          });
+        } catch (error) {
+          if (mounted) {
+            showErrorDialog(context, 'Something went wrong.');
+          }
+        }
+      },
+    );
+  }
+
+  Widget _buildDrinkPreview() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: 100,
+          height: 100,
+          margin: const EdgeInsets.only(top: 8, right: 10),
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.grey),
+          ),
+          child: !_editedDrink.hasDrinkImage()
+              ? const Center(child: Text('No Image'))
+              : FittedBox(
+                  child: _editedDrink.drinkImage == null
+                      ? Image.network(
+                          _editedDrink.imageUrl,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.file(
+                          _editedDrink.drinkImage!,
+                          fit: BoxFit.cover,
+                        ),
+                ),
+        ),
+        Expanded(
+          child: SizedBox(height: 100, child: _buildImagePickerButton()),
+        ),
+      ],
+    );
+  }
+
 }

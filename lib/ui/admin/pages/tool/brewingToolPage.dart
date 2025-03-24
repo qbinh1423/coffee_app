@@ -1,5 +1,6 @@
 import 'package:coffee_app/ui/admin/components/brewingToolCardAdmin.dart';
 import 'package:coffee_app/ui/admin/pages/tool/editBrewingTool.dart';
+import 'package:coffee_app/ui/admin/pages/tool/toolManager.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,10 +9,15 @@ import '../../../../theme/theme.dart';
 import '../../../../theme/themeProvider.dart';
 import '../../components/adminDrawer.dart';
 
-class BrewingToolPage extends StatelessWidget {
-  BrewingToolPage({super.key});
+class BrewingToolPage extends StatefulWidget {
+  const BrewingToolPage({super.key});
 
-  final List<Tool> toolsData = [];
+  @override
+  State<BrewingToolPage> createState() => _BrewingToolPageState();
+}
+
+class _BrewingToolPageState extends State<BrewingToolPage> {
+  // final List<Tool> toolsData = [];
 
   @override
   Widget build(BuildContext context) {
@@ -58,15 +64,16 @@ class BrewingToolPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => EditBrewingTool(
-                    tool: Tool(
-                      id: null,
+                    Tool(
+                      id: '',
                       name: '',
                       origin: '',
-                      imageUrl: '',
-                      type: '',
                       material: '',
+                      type: '',
                       description: '',
+                      imageUrl: '',
                     ),
+                    id: '',
                   ),
                 ),
               );
@@ -75,22 +82,27 @@ class BrewingToolPage extends StatelessWidget {
           const SizedBox(width: 10),
         ],
       ),
-      drawer: const Admindrawer(),
-      body: Padding(
-        padding: const EdgeInsets.only(right: 15.0),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 12,
-            childAspectRatio: 0.55,
-          ),
-          itemCount: toolsData.length,
-          itemBuilder: (context, index) {
-            final tool = toolsData[index];
-            return BrewingToolCardAdmin(tool: tool);
-          },
-        ),
+      drawer: const AdminDrawer(),
+      body: Consumer<ToolManager>(
+        builder: (context, toolsManager, _) {
+          if (toolsManager.items.isEmpty) {
+            return const Center(child: Text("No tools available!"));
+          }
+
+          return GridView.builder(
+            padding: const EdgeInsets.all(12.0),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 12,
+              childAspectRatio: 0.7,
+            ),
+            itemCount: toolsManager.items.length,
+            itemBuilder: (context, index) {
+              return BrewingToolCardAdmin(tool: toolsManager.items[index]);
+            },
+          );
+        },
       ),
     );
   }

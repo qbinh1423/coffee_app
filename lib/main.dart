@@ -1,5 +1,6 @@
 import 'package:coffee_app/ui/admin/pages/bean/editCoffeeBean.dart';
 import 'package:coffee_app/ui/admin/pages/dashboardPage.dart';
+import 'package:coffee_app/ui/admin/pages/store/store_manager.dart';
 import 'package:coffee_app/ui/auth/auth_manager.dart';
 import 'package:coffee_app/ui/auth/auth_screen.dart';
 import 'package:coffee_app/ui/loginPage.dart';
@@ -12,6 +13,8 @@ import 'package:provider/provider.dart';
 
 import 'models/bean.dart';
 import 'ui/admin/pages/bean/bean_manager.dart';
+import 'ui/admin/pages/drink/drink_manager.dart';
+import 'ui/admin/pages/tool/toolManager.dart';
 import 'ui/user/components/favoriteProvider.dart';
 
 // void main() {
@@ -35,6 +38,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => FavoriteProvider()),
         ChangeNotifierProvider(create: (context) => AuthManager()),
         ChangeNotifierProvider(create: (context) => BeansManager()),
+        ChangeNotifierProvider(create: (context) => ToolManager()),
+        ChangeNotifierProvider(create: (context) => DrinkManager()),
+        ChangeNotifierProvider(create: (context) => StoreManager()),
+
+
+
       ],
       child: Consumer<AuthManager>(
         builder: (ctx, authManager, child) {

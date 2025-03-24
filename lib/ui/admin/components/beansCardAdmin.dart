@@ -18,7 +18,7 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
     debugPrint("Bean Data: ${widget.bean.toJson()}");
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 17.0, bottom: 25.0),
@@ -55,7 +55,7 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      widget.bean.description ?? "No description available",
+                      widget.bean.description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(fontSize: 14),

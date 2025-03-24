@@ -20,7 +20,6 @@ class CoffeeBeanPage extends StatefulWidget {
 class _CoffeeBeanPageState extends State<CoffeeBeanPage> {
   // final List<Map<String, String>> beansData = [];
 
-  late Future<void> _fetchBeans;
 
   @override
   void initState() {
@@ -91,7 +90,7 @@ class _CoffeeBeanPageState extends State<CoffeeBeanPage> {
           const SizedBox(width: 10),
         ],
       ),
-      drawer: const Admindrawer(),
+      drawer: const AdminDrawer(),
       body: Consumer<BeansManager>(
         builder: (context, beansManager, _) {
           if (beansManager.items.isEmpty) {

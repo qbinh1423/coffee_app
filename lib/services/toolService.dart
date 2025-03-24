@@ -13,27 +13,46 @@ class ToolService {
   Future<Tool?> addTool(Tool tool) async {
     try {
       final pb = await getPocketbaseInstance();
-      final userId = pb.authStore.record!.id;
+      print('Bắt đầu addBean()...');
+      print('PocketBase URL: ${pb.baseUrl}');
 
-      final toolModel = await pb.collection('tool').create(
+      if (!pb.authStore.isValid) {
+        print('Người dùng chưa đăng nhập hoặc token không hợp lệ.');
+        return null;
+      }
+
+      print('User ID: ${pb.authStore.model?.id}');
+      print('Dữ liệu gửi lên: ${tool.toJson()}');
+
+      List<http.MultipartFile> files = [];
+      if (tool.toolImage != null) {
+        final imageBytes = await tool.toolImage!.readAsBytes();
+        final filename = tool.toolImage!.uri.pathSegments.last;
+        print('Tải lên file: $filename');
+
+        files.add(http.MultipartFile.fromBytes(
+          'toolImage',
+          imageBytes,
+          filename: filename,
+        ));
+      }
+
+      final record = await pb.collection('tool').create(
         body: {
           ...tool.toJson(),
-          'userId': userId,
+          'userId': pb.authStore.model?.id,
         },
-        files: [
-          http.MultipartFile.fromBytes(
-            'toolImage',
-            await tool.toolImage!.readAsBytes(),
-            filename: tool.toolImage!.uri.pathSegments.last,
-          ),
-        ],
+        files: files,
       );
 
+      print('Tool đã lưu thành công: ${record.toJson()}');
+
       return tool.copyWith(
-        id: toolModel.id,
-        imageUrl: _getFeaturedImageUrl(pb, toolModel),
+        id: record.id,
+        imageUrl: _getFeaturedImageUrl(pb, record),
       );
-    } catch (error) {
+    } catch (e) {
+      print('Lỗi khi lưu Tool: $e');
       return null;
     }
   }

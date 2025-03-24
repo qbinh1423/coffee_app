@@ -1,0 +1,120 @@
+import 'package:http/http.dart' as http;
+import 'package:pocketbase/pocketbase.dart';
+
+import '../models/store.dart';
+import 'pocketbase_client.dart';
+
+class StoreService {
+  String _getFeaturedImageUrl(PocketBase pb, RecordModel storeModel) {
+    final storeImage = storeModel.getStringValue('storeImage');
+
+    return pb.files.getUrl(storeModel, storeImage).toString();
+  }
+
+  Future<Store?> addStore(Store store) async {
+    try {
+      final pb = await getPocketbaseInstance();
+      print('Bắt đầu addStore()...');
+      print('PocketBase URL: ${pb.baseUrl}');
+
+      if (!pb.authStore.isValid) {
+        print('Người dùng chưa đăng nhập hoặc token không hợp lệ.');
+        return null;
+      }
+
+      print('User ID: ${pb.authStore.model?.id}');
+      print('Dữ liệu gửi lên: ${store.toJson()}');
+
+      List<http.MultipartFile> files = [];
+      if (store.storeImage != null) {
+        final imageBytes = await store.storeImage!.readAsBytes();
+        final filename = store.storeImage!.uri.pathSegments.last;
+        print('Tải lên file: $filename');
+
+        files.add(http.MultipartFile.fromBytes(
+          'storeImage',
+          imageBytes,
+          filename: filename,
+        ));
+      }
+
+      final record = await pb.collection('store').create(
+        body: {
+          ...store.toJson(),
+          'userId': pb.authStore.model?.id,
+        },
+        files: files,
+      );
+
+      print('Store đã lưu thành công: ${record.toJson()}');
+
+      return store.copyWith(
+        id: record.id,
+        imageUrl: _getFeaturedImageUrl(pb, record),
+      );
+    } catch (e) {
+      print('Lỗi khi lưu Store: $e');
+      return null;
+    }
+  }
+
+  Future<Store?> updateStore(Store store) async {
+    try {
+      final pb = await getPocketbaseInstance();
+
+      final storeModel = await pb.collection('store').update(
+            store.id!,
+            body: store.toJson(),
+            files: store.storeImage != null
+                ? [
+                    http.MultipartFile.fromBytes(
+                      'storeImage',
+                      await store.storeImage!.readAsBytes(),
+                      filename: store.storeImage!.uri.pathSegments.last,
+                    ),
+                  ]
+                : [],
+          );
+      return store.copyWith(
+        imageUrl: store.storeImage != null
+            ? _getFeaturedImageUrl(pb, storeModel)
+            : store.imageUrl,
+      );
+    } catch (error) {
+      return null;
+    }
+  }
+
+  Future<bool> deleteStore(String id) async {
+    try {
+      final pb = await getPocketbaseInstance();
+      await pb.collection('store').delete(id);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  Future<List<Store>> fetchStore({bool filteredByUser = false}) async {
+    final List<Store> stores = [];
+
+    try {
+      final pb = await getPocketbaseInstance();
+      final userId = pb.authStore.record!.id;
+      final storeModels = await pb
+          .collection('store')
+          .getFullList(filter: filteredByUser ? "userId='$userId'" : null);
+      for (final storeModel in storeModels) {
+        stores.add(
+          Store.fromJson(
+            storeModel.toJson()
+              ..addAll({'imageUrl': _getFeaturedImageUrl(pb, storeModel)}),
+          ),
+        );
+      }
+      return stores;
+    } catch (error) {
+      return stores;
+    }
+  }
+}

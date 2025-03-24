@@ -1,4 +1,10 @@
+import 'dart:io';
+
+import 'package:coffee_app/models/store.dart';
+import 'package:coffee_app/ui/admin/pages/store/store_manager.dart';
+import 'package:coffee_app/ui/shared/dialog_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../theme/theme.dart';
@@ -6,57 +12,100 @@ import '../../../../theme/themeProvider.dart';
 import '../../components/adminDrawer.dart';
 
 class EditStore extends StatefulWidget {
-  final String storeName;
-  final String storeLocation;
-  final String imageUrl;
-  final String? description;
-  final String? phone;
-  final String? time;
+  static const routeName = '/edit_store';
 
-  const EditStore({
+  EditStore(
+    Store? store, {
     super.key,
-    required this.storeName,
-    required this.storeLocation,
-    required this.imageUrl,
-    this.phone,
-    this.time,
-    this.description,
-  });
+    required String id,
+  }) {
+    if (store == null) {
+      this.store = Store(
+        id: null,
+        name: '',
+        location: '',
+        phone: '',
+        startTime: '',
+        endTime: '',
+        description: '',
+        imageUrl: '',
+      );
+    } else {
+      this.store = store;
+    }
+  }
+
+  late final Store store;
 
   @override
   State<EditStore> createState() => _EditStoreState();
 }
 
 class _EditStoreState extends State<EditStore> {
-  late TextEditingController _nameController;
-  late TextEditingController _locationController;
-  late TextEditingController _imageUrlController;
-  late TextEditingController _phoneController;
-  late TextEditingController _timeController;
-  late TextEditingController _descriptionController;
+  final _editForm = GlobalKey<FormState>();
+  late Store _editedStore;
 
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.storeName);
-    _locationController = TextEditingController(text: widget.storeLocation);
-    _imageUrlController = TextEditingController(text: widget.imageUrl);
-    _phoneController = TextEditingController(text: widget.phone ?? '');
-    _timeController = TextEditingController(text: widget.time ?? '');
-    _descriptionController =
-        TextEditingController(text: widget.description ?? '');
+    _editedStore = widget.store;
+
   }
 
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _locationController.dispose();
-    _imageUrlController.dispose();
-    _phoneController.dispose();
-    _timeController.dispose();
-    _descriptionController.dispose();
-    super.dispose();
+
+  Future<void> _saveFormStore() async {
+    print('Bắt đầu lưu form');
+
+    final isValid =
+        _editForm.currentState!.validate() && _editedStore.hasStoreImage();
+    print('Form hợp lệ: $isValid');
+
+    if (!isValid) {
+      print('Form không hợp lệ, dừng lại.');
+      return;
+    }
+
+    _editForm.currentState!.save();
+    print('Dữ liệu sau khi save: $_editedStore');
+
+    try {
+      print('Gọi addStore() với dữ liệu: $_editedStore');
+
+      final storeManager = context.read<StoreManager>();
+      if (_editedStore.id != null && _editedStore.id!.isNotEmpty) {
+        await storeManager.updateStore(_editedStore);
+      } else {
+        await storeManager.addStore(_editedStore);
+        print(' Đã gọi thành công addStore() để tạo mới.');
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Store saved successfully!')),
+      );
+      Navigator.pop(context);
+    } catch (error) {
+      debugPrint('Error saving form: $error');
+    }
   }
+
+  Future<void> showErrorDialog(BuildContext context, String message) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        icon: const Icon(Icons.error),
+        title: const Text('An Error Occurred!'),
+        content: Text(message),
+        actions: <Widget>[
+          ActionButton(
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+          )
+        ],
+      ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +131,7 @@ class _EditStoreState extends State<EditStore> {
             },
           ),
         ),
-        actions: [
+        actions: <Widget> [
           ThemeButton(
             changeThemeMode: (isBright) {
               themeProvider.toggleTheme();
@@ -90,279 +139,204 @@ class _EditStoreState extends State<EditStore> {
           ),
         ],
       ),
-      drawer: const Admindrawer(),
+      drawer: const AdminDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Name',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _nameController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter store name';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter store name",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
+        child: Form(
+            key: _editForm,
+            child: ListView(
+              children: <Widget>[
+                _buildNameField(),
+                _buildLocationField(),
+                _buildPhoneField(),
+                _buildDescriptionField(),
+                _buildStartTimeField(),
+                _buildEndTimeField(),
+                _buildStorePreview(),
+                const SizedBox(height: 20),
+                Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 32, vertical: 12),
                     ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
+                    onPressed: _saveFormStore,
+                    child: const Text(
+                      'Save',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Location',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _locationController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter location';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter location",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Phone',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _phoneController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter phone number';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter phone number",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Time',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _timeController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter time';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter time",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Description',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              TextFormField(
-                controller: _descriptionController,
-                validator: (value) {
-                  if ((value == null || value.isEmpty)) {
-                    return 'Please enter description';
-                  }
-                  return null;
-                },
-                cursorColor: Colors.black,
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                  hintText: "Enter description",
-                  hintStyle: const TextStyle(
-                    color: Colors.black26,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black12,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: _imageUrlController.text.isNotEmpty
-                        ? ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              _imageUrlController.text,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return const Icon(Icons.image_not_supported,
-                                    size: 50);
-                              },
-                            ),
-                          )
-                        : const Icon(Icons.image, size: 50),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: TextFormField(
-                      controller: _imageUrlController,
-                      validator: (value) {
-                        if ((value == null || value.isEmpty)) {
-                          return 'Please enter image URL';
-                        }
-                        return null;
-                      },
-                      cursorColor: Colors.black,
-                      style: const TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                        hintText: "Enter image URL",
-                        hintStyle: const TextStyle(
-                          color: Colors.black26,
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Colors.black12,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Container(
-                width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(widget.imageUrl),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Center(
-                child: ElevatedButton(
-                  style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Color(0xFF416FDF)),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    'Save',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+              ],
+            )),
       ),
+    );
+  }
+
+  TextFormField _buildNameField() {
+    return TextFormField(
+      initialValue: _editedStore.name,
+      decoration: const InputDecoration(labelText: 'Name'),
+      textInputAction: TextInputAction.next,
+      autofocus: true,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please provide a name.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedStore = _editedStore.copyWith(name: value);
+      },
+    );
+  }
+
+  TextFormField _buildLocationField() {
+    return TextFormField(
+      initialValue: _editedStore.location,
+      decoration: const InputDecoration(labelText: 'Location'),
+      textInputAction: TextInputAction.next,
+      autofocus: true,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please provide a location.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedStore = _editedStore.copyWith(location: value);
+      },
+    );
+  }
+
+  TextFormField _buildPhoneField() {
+    return TextFormField(
+      initialValue: _editedStore.phone,
+      decoration: const InputDecoration(labelText: 'Phone'),
+      textInputAction: TextInputAction.next,
+      autofocus: true,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please provide a phone.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedStore = _editedStore.copyWith(phone: value);
+      },
+    );
+  }
+
+  TextFormField _buildDescriptionField() {
+    return TextFormField(
+      initialValue: _editedStore.description,
+      decoration: const InputDecoration(labelText: 'Description'),
+      maxLines: 10,
+      keyboardType: TextInputType.multiline,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter a description.';
+        }
+        if (value.length < 10) {
+          return 'Should be at least 10 characters long.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedStore = _editedStore.copyWith(description: value);
+      },
+    );
+  }
+
+  TextFormField _buildStartTimeField() {
+    return TextFormField(
+      initialValue: _editedStore.startTime,
+      decoration: const InputDecoration(labelText: 'Start Time (HH:mm)'),
+      keyboardType: TextInputType.datetime,
+      textInputAction: TextInputAction.next,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please provide a start time.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedStore = _editedStore.copyWith(startTime: value);
+      },
+    );
+  }
+
+  TextFormField _buildEndTimeField() {
+    return TextFormField(
+      initialValue: _editedStore.endTime,
+      decoration: const InputDecoration(labelText: 'End Time (HH:mm)'),
+      keyboardType: TextInputType.datetime,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please provide an end time.';
+        }
+        return null;
+      },
+      onSaved: (value) {
+        _editedStore = _editedStore.copyWith(endTime: value);
+      },
+    );
+  }
+
+  TextButton _buildImagePickerButton() {
+    return TextButton.icon(
+      icon: const Icon(Icons.image),
+      label: const Text('Pick Image'),
+      onPressed: () async {
+        final imagePicker = ImagePicker();
+        try {
+          final imageFile =
+              await imagePicker.pickImage(source: ImageSource.gallery);
+          if (imageFile == null) {
+            return;
+          }
+          setState(() {
+            _editedStore = _editedStore.copyWith(storeImage: File(imageFile.path));
+          });
+        } catch (error) {
+          if (mounted) {
+            showErrorDialog(context, 'Something went wrong.');
+          }
+        }
+      },
+    );
+  }
+
+  Widget _buildStorePreview() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: 100,
+          height: 100,
+          margin: const EdgeInsets.only(top: 8, right: 10),
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.grey),
+          ),
+          child: !_editedStore.hasStoreImage()
+              ? const Center(child: Text('No Image'))
+              : FittedBox(
+                  child: _editedStore.storeImage == null
+                      ? Image.network(
+                          _editedStore.imageUrl,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.file(
+                          _editedStore.storeImage!,
+                          fit: BoxFit.cover,
+                        ),
+                ),
+        ),
+        Expanded(
+          child: SizedBox(height: 100, child: _buildImagePickerButton()),
+        ),
+      ],
     );
   }
 }
