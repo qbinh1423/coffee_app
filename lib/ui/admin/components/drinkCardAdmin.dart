@@ -1,11 +1,13 @@
 import 'package:coffee_app/models/drink.dart';
 import 'package:coffee_app/ui/admin/pages/drink/editDrink.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../pages/drink/drink_manager.dart';
 
 class DrinkCardAdmin extends StatefulWidget {
   final Drink drink;
   const DrinkCardAdmin({super.key, required this.drink});
-
 
   @override
   State<DrinkCardAdmin> createState() => _DrinkCardAdminState();
@@ -15,7 +17,24 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
   @override
   void initState() {
     super.initState();
-    debugPrint("Drink Data: ${widget.drink.toJson()}");
+    print("Drink Data: ${widget.drink.toJson()}");
+  }
+
+  Future<void> _deleteDrink(String id) async {
+    final drinkManager = context.read<DrinkManager>();
+    bool isDeleted = await drinkManager.deleteDrink(id);
+
+    if (isDeleted) {
+      await drinkManager.fetchUserDrinks();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Drink deleted successfully!')),
+      );
+      setState(() {});
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to delete drink!')),
+      );
+    }
   }
 
   @override
@@ -36,8 +55,6 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
                 widget.drink.imageUrl,
-                width: 180,
-                height: 150,
                 fit: BoxFit.cover,
               ),
             ),
@@ -55,7 +72,7 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      widget.drink.description ?? "No description available",
+                      widget.drink.description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(fontSize: 14),
@@ -71,7 +88,7 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.edit),
-                    onPressed: () {
+                    onPressed: () async {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -81,6 +98,8 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
                           ),
                         ),
                       );
+                      await context.read<DrinkManager>().fetchUserDrinks();
+
                     },
                   ),
                   IconButton(
@@ -98,8 +117,9 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
                               child: const Text("Cancel"),
                             ),
                             TextButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 Navigator.pop(context);
+                                await _deleteDrink(widget.drink.id ?? '');
                               },
                               child: const Text("Delete",
                                   style: TextStyle(color: Colors.red)),

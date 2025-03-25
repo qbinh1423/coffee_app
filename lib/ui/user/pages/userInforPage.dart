@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../theme/theme.dart';
 import '../../../theme/themeProvider.dart';
+import '../../auth/auth_manager.dart';
 
 class UserInforPage extends StatefulWidget {
   const UserInforPage({super.key});
@@ -13,36 +14,47 @@ class UserInforPage extends StatefulWidget {
 }
 
 class _UserInforPageState extends State<UserInforPage> {
-  // late TextEditingController _imageUrlController;
-  late TextEditingController _nameController;
-  late TextEditingController _phoneController;
-  late TextEditingController _emailController;
+  final _formKey = GlobalKey<FormState>();
+  String _name = '';
+  String _email = '';
+  String _phone = '';
+
+  Future<void> _submitAccount() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    _formKey.currentState!.save();
+
+    try {
+      await context.read<AuthManager>().updateUser({
+        'name': _name,
+        'email': _email,
+        'phone': _phone,
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Cập nhật thành công!')),
+      );
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Lỗi: $error')),
+      );
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController();
-    _phoneController = TextEditingController();
-    _emailController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _phoneController.dispose();
-    _emailController.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<ThemeProvider>(context);
+    final user = context.watch<AuthManager>().user;
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          "Edit Coffee Bean",
+          "Account",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -69,7 +81,8 @@ class _UserInforPageState extends State<UserInforPage> {
       drawer: const DrawerUser(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -121,13 +134,14 @@ class _UserInforPageState extends State<UserInforPage> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               TextFormField(
-                controller: _nameController,
+                initialValue: user?.name,
                 validator: (value) {
                   if ((value == null || value.isEmpty)) {
-                    return 'Please enter a coffee bean name';
+                    return 'Please enter a name';
                   }
                   return null;
                 },
+                onSaved: (value) => _name = value!,
                 cursorColor: Colors.black,
                 style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -157,13 +171,14 @@ class _UserInforPageState extends State<UserInforPage> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               TextFormField(
-                controller: _phoneController,
+                initialValue: user?.phone,
                 validator: (value) {
                   if ((value == null || value.isEmpty)) {
                     return 'Please enter phone';
                   }
                   return null;
                 },
+                onSaved: (value) => _phone = value!,
                 cursorColor: Colors.black,
                 style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -193,13 +208,14 @@ class _UserInforPageState extends State<UserInforPage> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               TextFormField(
-                controller: _emailController,
+                initialValue: user?.email,
                 validator: (value) {
                   if ((value == null || value.isEmpty)) {
                     return 'Please enter email';
                   }
                   return null;
                 },
+                onSaved: (value) => _email = value!,
                 cursorColor: Colors.black,
                 style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -229,7 +245,7 @@ class _UserInforPageState extends State<UserInforPage> {
                     backgroundColor: WidgetStatePropertyAll(
                         Theme.of(context).colorScheme.primary),
                   ),
-                  onPressed: () {},
+                  onPressed: _submitAccount,
                   child: Text(
                     'Save',
                     style: TextStyle(

@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../theme/theme.dart';
-import '../../../../theme/themeProvider.dart';
 import '../../../shared/dialog_utils.dart';
-import '../../components/adminDrawer.dart';
 import 'package:coffee_app/models/tool.dart';
 
 import 'toolManager.dart';
@@ -71,24 +68,20 @@ class _EditBrewingToolState extends State<EditBrewingTool> {
   }
 
   Future<void> _saveFormTool() async {
-    print('Bắt đầu lưu form');
     final isValid = _editForm.currentState!.validate() && _editedTool.hasFeaturedImage();
     if (!isValid) {
       return;
     }
     _editForm.currentState!.save();
-        print('Dữ liệu sau khi save: $_editedTool');
 
 
     try {
-      print('Gọi addTool() với dữ liệu: $_editedTool');
 
       final toolManager = context.read<ToolManager>();
       if (_editedTool.id != null && _editedTool.id!.isNotEmpty) {
         await toolManager.updateTool(_editedTool);
       } else {
         await toolManager.addTool(_editedTool);
-        print(' Đã gọi thành công addTool() để tạo mới.');
 
       }
 

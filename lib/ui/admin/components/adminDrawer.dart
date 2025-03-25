@@ -1,5 +1,6 @@
 import 'package:coffee_app/ui/admin/pages/adminInforPage.dart';
 import 'package:coffee_app/ui/admin/pages/listPage.dart';
+import 'package:coffee_app/ui/admin/pages/userListPage.dart';
 import 'package:coffee_app/ui/auth/auth_manager.dart';
 import 'package:coffee_app/ui/auth/auth_screen.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +77,25 @@ class AdminDrawer extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (e) => const AdminInforPage(),
+                  ));
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.group,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            title: const Text(
+              'List user',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (e) => const UserListPage(),
                   ));
             },
           ),

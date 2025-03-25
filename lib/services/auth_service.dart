@@ -18,8 +18,10 @@ class AuthService {
     }
   }
 
-  Future<User> signup(String name, String email, String password) async {
+  Future<User> signup(String name, String email, String phone, String password) async {
     final pb = await getPocketbaseInstance();
+    print('PocketBase URL: ${pb.baseUrl}');
+
 
     try {
       final record = await pb.collection('users').create(body: {
@@ -27,8 +29,10 @@ class AuthService {
         'email': email,
         'password': password,
         'passwordConfirm': password,
+        'phone': phone,
+        'role': 'user',
       });
-      print("Đăng ký thành công");
+      print("Login successfully!");
       return User.fromJson(record.toJson());
     } catch (error) {
       if (error is ClientException) {
@@ -44,7 +48,7 @@ class AuthService {
     try {
       final authRecord =
           await pb.collection('users').authWithPassword(email, password);
-      
+
       return User.fromJson(authRecord.record.toJson());
     } catch (error) {
       if (error is ClientException) {
@@ -59,6 +63,24 @@ class AuthService {
     pb.authStore.clear();
   }
 
+  Future<User> updateUser(
+      String userId, Map<String, dynamic> updatedData) async {
+    final pb = await getPocketbaseInstance();
+
+    try {
+      final record =
+          await pb.collection('users').update(userId, body: updatedData);
+      print("Update information successfully!");
+      return User.fromJson(record.toJson());
+    } catch (error) {
+      if (error is ClientException) {
+        debugPrint('PocketBase Error: ${error.response}');
+        throw Exception(error.response['message']);
+      }
+      throw Exception('Error');
+    }
+  }
+
   Future<User?> getUserFromStore() async {
     final pb = await getPocketbaseInstance();
     final model = pb.authStore.record;
@@ -69,4 +91,6 @@ class AuthService {
 
     return User.fromJson(model.toJson());
   }
+
+
 }

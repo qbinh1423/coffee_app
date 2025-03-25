@@ -5,13 +5,12 @@ class Drink {
   final String name;
   final String origin;
   final String? toolId;
-  final List<dynamic> ingredients; 
+  final List<String> ingredients; 
   final String caffeine;
   final String description;
   final File? drinkImage;
   final String imageUrl;
   final bool isFavorite;
-  final String? userId;
 
   Drink({
     this.id,
@@ -24,7 +23,6 @@ class Drink {
     this.drinkImage,
     this.imageUrl = '',
     this.isFavorite = false,
-    this.userId,
   });
 
   Drink copyWith({
@@ -32,13 +30,12 @@ class Drink {
     String? name,
     String? origin,
     String? toolId,
-    List<dynamic>? ingredients,
+    List<String>? ingredients,
     String? caffeine,
     String? description,
     File? drinkImage,
     String? imageUrl,
     bool? isFavorite,
-    String? userId,
   }) {
     return Drink(
       id: id ?? this.id,
@@ -51,7 +48,6 @@ class Drink {
       drinkImage: drinkImage ?? this.drinkImage,
       imageUrl: imageUrl ?? this.imageUrl,
       isFavorite: isFavorite ?? this.isFavorite,
-      userId: userId ?? this.userId,
     );
   }
 
@@ -69,7 +65,6 @@ class Drink {
       'description': description,
       'isFavorite': isFavorite,
       'userId': userId,
-      'imageUrl': imageUrl
     };
   }
 
@@ -79,17 +74,19 @@ class Drink {
       name: json['name'] as String? ?? '',
       origin: json['origin'] as String? ?? '',
       toolId: json['tool'] as String?,
-      ingredients: json['ingredients'] as List<dynamic>? ?? [],
+      ingredients: (json['ingredients'] as List<dynamic>?)
+              ?.map((item) => item.toString())
+              .toList() ??
+          [],
       caffeine: json['caffeine'] as String? ?? '',
       description: json['description'] as String? ?? '',
       isFavorite: json['isFavorite'] as bool? ?? false,
-      imageUrl: json['drinkImage'] as String? ?? '',
-      userId: json['userId'] as String?,
+      imageUrl: json['drinkImage']  ?? '',
     );
   }
 
     @override
   String toString() {
-    return 'Drink(id: $id, name: $name, origin: $origin,  description: $description,  imageUrl: $imageUrl)';
+    return 'Drink(id: $id, name: $name, origin: $origin,  description: $description, ingredients: $ingredients, imageUrl: $imageUrl)';
   }
 }

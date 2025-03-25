@@ -17,7 +17,11 @@ class BrewingToolPage extends StatefulWidget {
 }
 
 class _BrewingToolPageState extends State<BrewingToolPage> {
-  // final List<Tool> toolsData = [];
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() => context.read<ToolManager>().loadTools());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +90,7 @@ class _BrewingToolPageState extends State<BrewingToolPage> {
       body: Consumer<ToolManager>(
         builder: (context, toolsManager, _) {
           if (toolsManager.items.isEmpty) {
-            return const Center(child: Text("No tools available!"));
+            return const Center(child: CircularProgressIndicator());
           }
 
           return GridView.builder(

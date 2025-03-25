@@ -1,6 +1,8 @@
 import 'package:coffee_app/models/store.dart';
 import 'package:coffee_app/ui/admin/pages/store/editStore.dart';
+import 'package:coffee_app/ui/admin/pages/store/store_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class StoreCardAdmin extends StatefulWidget {
   final Store store;
@@ -15,7 +17,24 @@ class _StoreCardAdminState extends State<StoreCardAdmin> {
   @override
   void initState() {
     super.initState();
-    debugPrint("Store Data: ${widget.store.toJson()}");
+    print("Store Data: ${widget.store.toJson()}");
+  }
+
+  Future<void> _deleteStore(String id) async {
+    final storeManager = context.read<StoreManager>();
+    bool isDeleted = await storeManager.deleteStore(id);
+
+    if (isDeleted) {
+      await storeManager.fetchUserStore();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Store deleted successfully!')),
+      );
+      setState(() {});
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to delete store!')),
+      );
+    }
   }
 
   @override
@@ -55,7 +74,7 @@ class _StoreCardAdminState extends State<StoreCardAdmin> {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      widget.store.description ?? "No description available",
+                      widget.store.description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(fontSize: 14),
@@ -71,7 +90,7 @@ class _StoreCardAdminState extends State<StoreCardAdmin> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.edit),
-                    onPressed: () {
+                    onPressed: () async {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -81,6 +100,7 @@ class _StoreCardAdminState extends State<StoreCardAdmin> {
                           ),
                         ),
                       );
+                      await context.read<StoreManager>().fetchUserStore();
                     },
                   ),
                   IconButton(
@@ -98,8 +118,9 @@ class _StoreCardAdminState extends State<StoreCardAdmin> {
                               child: const Text("Cancel"),
                             ),
                             TextButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 Navigator.pop(context);
+                                await _deleteStore(widget.store.id ?? '');
                               },
                               child: const Text("Delete",
                                   style: TextStyle(color: Colors.red)),

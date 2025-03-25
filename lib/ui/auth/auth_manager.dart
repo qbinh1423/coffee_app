@@ -25,8 +25,8 @@ class AuthManager with ChangeNotifier {
     return _loggedInUser;
   }
 
-  Future<User> signup(String name, String email, String password) {
-    return _authService.signup(name, email, password);
+  Future<User> signup(String name, String email, String password, String phone) {
+    return _authService.signup(name, email, phone, password);
   }
 
   Future<User> login(String email, String password) {
@@ -35,7 +35,7 @@ class AuthManager with ChangeNotifier {
 
   Future<void> tryAutoLogin() async {
     final user = await _authService.getUserFromStore();
-    if (_loggedInUser != null) {
+    if (user != null) {
       _loggedInUser = user;
       notifyListeners();
     }
@@ -44,4 +44,20 @@ class AuthManager with ChangeNotifier {
   Future<void> logout() async {
     return _authService.logout();
   }
+
+  Future<User> updateUser(Map<String, dynamic> updatedData) async {
+    if (_loggedInUser == null) {
+      throw Exception('Không có người dùng nào đang đăng nhập.');
+    }
+
+    final updatedUser =
+        await _authService.updateUser(_loggedInUser!.id, updatedData);
+
+    _loggedInUser = updatedUser;
+    notifyListeners();
+
+    return updatedUser;
+  }
+
+
 }

@@ -3,7 +3,6 @@ import 'package:coffee_app/ui/admin/pages/dashboardPage.dart';
 import 'package:coffee_app/ui/admin/pages/store/store_manager.dart';
 import 'package:coffee_app/ui/auth/auth_manager.dart';
 import 'package:coffee_app/ui/auth/auth_screen.dart';
-import 'package:coffee_app/ui/loginPage.dart';
 import 'package:coffee_app/theme/themeProvider.dart';
 import 'package:coffee_app/ui/screens.dart';
 import 'package:coffee_app/ui/user/pages/homePage.dart';
@@ -11,19 +10,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
-import 'models/bean.dart';
 import 'ui/admin/pages/bean/bean_manager.dart';
 import 'ui/admin/pages/drink/drink_manager.dart';
 import 'ui/admin/pages/tool/toolManager.dart';
 import 'ui/user/components/favoriteProvider.dart';
 
-// void main() {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   runApp(const MyApp());
-// }
-
 Future<void> main() async {
-  await dotenv.load();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  try {
+    await dotenv.load();
+  } catch (e) {
+    debugPrint('Error loading .env: $e');
+  }
+
   runApp(const MyApp());
 }
 
@@ -41,9 +41,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ToolManager()),
         ChangeNotifierProvider(create: (context) => DrinkManager()),
         ChangeNotifierProvider(create: (context) => StoreManager()),
-
-
-
       ],
       child: Consumer<AuthManager>(
         builder: (ctx, authManager, child) {
@@ -53,16 +50,20 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 theme: themeProvider.themeData,
                 home: authManager.isAuth
-                  ? const SafeArea(child: DashboardPage()) 
-                  : FutureBuilder (
-                    future: authManager.tryAutoLogin(),
-                    builder: (ctx, snapshot) {
-                      return snapshot.connectionState == ConnectionState.waiting
-                      ? const SafeArea(child: SplashScreen()) 
-                      : const SafeArea(child: AuthScreen());
-                }),
+                    ? (authManager.user?.role == 'admin'
+                        ? const SafeArea(child: DashboardPage())
+                        : const SafeArea(child: HomePage()))
+                    : FutureBuilder(
+                        future: authManager.tryAutoLogin(),
+                        builder: (ctx, snapshot) {
+                          return snapshot.connectionState ==
+                                  ConnectionState.waiting
+                              ? const SafeArea(child: SplashScreen())
+                              : const SafeArea(child: AuthScreen());
+                        }),
                 routes: {
-                  EditCoffeeBean.routeName: (ctx) => EditCoffeeBean(null, id: '')
+                  EditCoffeeBean.routeName: (ctx) =>
+                      EditCoffeeBean(null, id: '')
                 },
                 onGenerateRoute: (settings) {
                   if (settings.name == EditCoffeeBean.routeName) {
@@ -82,7 +83,6 @@ class MyApp extends StatelessWidget {
                   }
                   return null;
                 },
-
               );
             },
           );

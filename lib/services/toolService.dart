@@ -1,3 +1,4 @@
+
 import 'package:http/http.dart' as http;
 import 'package:pocketbase/pocketbase.dart';
 
@@ -13,22 +14,18 @@ class ToolService {
   Future<Tool?> addTool(Tool tool) async {
     try {
       final pb = await getPocketbaseInstance();
-      print('Bắt đầu addBean()...');
       print('PocketBase URL: ${pb.baseUrl}');
 
       if (!pb.authStore.isValid) {
-        print('Người dùng chưa đăng nhập hoặc token không hợp lệ.');
         return null;
       }
 
-      print('User ID: ${pb.authStore.model?.id}');
-      print('Dữ liệu gửi lên: ${tool.toJson()}');
 
       List<http.MultipartFile> files = [];
       if (tool.toolImage != null) {
         final imageBytes = await tool.toolImage!.readAsBytes();
         final filename = tool.toolImage!.uri.pathSegments.last;
-        print('Tải lên file: $filename');
+        print('Upload file: $filename');
 
         files.add(http.MultipartFile.fromBytes(
           'toolImage',
@@ -45,14 +42,14 @@ class ToolService {
         files: files,
       );
 
-      print('Tool đã lưu thành công: ${record.toJson()}');
+      print('Data: ${record.toJson()}');
 
       return tool.copyWith(
         id: record.id,
         imageUrl: _getFeaturedImageUrl(pb, record),
       );
-    } catch (e) {
-      print('Lỗi khi lưu Tool: $e');
+    } catch (error) {
+      print('Error: $error');
       return null;
     }
   }
@@ -76,10 +73,12 @@ class ToolService {
       }
       return tools;
     } catch (error) {
-      return tools;
+      print('Error fetching tools: $error');
+      return [];
     }
   }
 
+  
   Future<Tool?> updateTool(Tool tool) async {
     try {
       final pb = await getPocketbaseInstance();

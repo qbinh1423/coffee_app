@@ -14,22 +14,17 @@ class StoreService {
   Future<Store?> addStore(Store store) async {
     try {
       final pb = await getPocketbaseInstance();
-      print('Bắt đầu addStore()...');
       print('PocketBase URL: ${pb.baseUrl}');
 
       if (!pb.authStore.isValid) {
-        print('Người dùng chưa đăng nhập hoặc token không hợp lệ.');
         return null;
       }
-
-      print('User ID: ${pb.authStore.model?.id}');
-      print('Dữ liệu gửi lên: ${store.toJson()}');
 
       List<http.MultipartFile> files = [];
       if (store.storeImage != null) {
         final imageBytes = await store.storeImage!.readAsBytes();
         final filename = store.storeImage!.uri.pathSegments.last;
-        print('Tải lên file: $filename');
+        print('Upload file: $filename');
 
         files.add(http.MultipartFile.fromBytes(
           'storeImage',
@@ -46,14 +41,14 @@ class StoreService {
         files: files,
       );
 
-      print('Store đã lưu thành công: ${record.toJson()}');
+      print('Store data: ${record.toJson()}');
 
       return store.copyWith(
         id: record.id,
         imageUrl: _getFeaturedImageUrl(pb, record),
       );
-    } catch (e) {
-      print('Lỗi khi lưu Store: $e');
+    } catch (error) {
+      print('Error: $error');
       return null;
     }
   }
@@ -100,21 +95,28 @@ class StoreService {
 
     try {
       final pb = await getPocketbaseInstance();
+      print('PocketBase URL: ${pb.baseUrl}');
+
       final userId = pb.authStore.record!.id;
+      print("User ID: $userId");
+
       final storeModels = await pb
           .collection('store')
           .getFullList(filter: filteredByUser ? "userId='$userId'" : null);
+
       for (final storeModel in storeModels) {
+        final imageUrl = _getFeaturedImageUrl(pb, storeModel);
         stores.add(
           Store.fromJson(
-            storeModel.toJson()
-              ..addAll({'imageUrl': _getFeaturedImageUrl(pb, storeModel)}),
+            storeModel.toJson()..addAll({'imageUrl': imageUrl}),
           ),
         );
       }
+
       return stores;
     } catch (error) {
-      return stores;
+      print('Error fetching store: $error');
+      return [];
     }
   }
 }

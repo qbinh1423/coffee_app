@@ -1,12 +1,17 @@
 import 'package:coffee_app/models/bean.dart';
+import 'package:coffee_app/ui/admin/pages/bean/bean_manager.dart';
 import 'package:coffee_app/ui/admin/pages/bean/editCoffeeBean.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BeansCardAdmin extends StatefulWidget {
   final Bean bean;
 
-  const BeansCardAdmin({super.key, required this.bean});
-                    
+  const BeansCardAdmin({
+    super.key,
+    required this.bean,
+  });
+
   @override
   State<BeansCardAdmin> createState() => _BeansCardAdminState();
 }
@@ -15,7 +20,24 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
   @override
   void initState() {
     super.initState();
-    debugPrint("Bean Data: ${widget.bean.toJson()}");
+    print("Bean Data: ${widget.bean.toJson()}");
+  }
+
+  Future<void> _deleteBean(String id) async {
+    final beansManager = context.read<BeansManager>();
+    bool isDeleted = await beansManager.deleteBean(id);
+
+    if (isDeleted) {
+      await beansManager.fetchBeans();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Bean deleted successfully!')),
+      );
+      setState(() {});
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to delete bean!')),
+      );
+    }
   }
 
   @override
@@ -41,7 +63,7 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 8), 
+            const SizedBox(height: 8),
             Expanded(
               child: Padding(
                 padding:
@@ -71,7 +93,7 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.edit),
-                    onPressed: () {
+                    onPressed: () async {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -81,6 +103,7 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
                           ),
                         ),
                       );
+                      await context.read<BeansManager>().fetchUserBeans();
                     },
                   ),
                   IconButton(
@@ -92,13 +115,16 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
                           title: const Text("Confirm Delete"),
                           content: const Text(
                               "Are you sure you want to delete this bean?"),
-                          actions: [
+                          actions: <Widget>[
                             TextButton(
                               onPressed: () => Navigator.pop(context),
                               child: const Text("Cancel"),
                             ),
                             TextButton(
-                              onPressed: () {Navigator.pop(context);},
+                              onPressed: () async {
+                                Navigator.pop(context);
+                                await _deleteBean(widget.bean.id ?? '');
+                              },
                               child: const Text("Delete",
                                   style: TextStyle(color: Colors.red)),
                             ),
@@ -115,5 +141,4 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
       ),
     );
   }
-
 }

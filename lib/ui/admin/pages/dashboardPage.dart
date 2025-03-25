@@ -1,3 +1,4 @@
+import 'package:coffee_app/services/dashboard_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +14,37 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  final DashboardService _dashboardService = DashboardService();
+
+  int userCount = 0;
+  int coffeeBeanCount = 0;
+  int drinkCount = 0;
+  int toolCount = 0;
+  int storeCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadDashboardData();
+  }
+
+  Future<void> _loadDashboardData() async {
+    final users = await _dashboardService.fetchItemCount('users');
+    final coffeeBeans = await _dashboardService.fetchItemCount('bean');
+    final drinks = await _dashboardService.fetchItemCount('drink');
+    final tools = await _dashboardService.fetchItemCount('tool');
+    final stores = await _dashboardService.fetchItemCount('store');
+
+    setState(() {
+      userCount = users;
+      coffeeBeanCount = coffeeBeans;
+      drinkCount = drinks;
+      toolCount = tools;
+      storeCount = stores;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<ThemeProvider>(context);
@@ -71,7 +103,7 @@ class _DashboardPageState extends State<DashboardPage> {
             DashboardCard(
               icon: const Icon(Icons.people, size: 50),
               label: "Users",
-              count: 120,
+              count: userCount,
             ),
             DashboardCard(
               icon: Image.asset(
@@ -82,22 +114,22 @@ class _DashboardPageState extends State<DashboardPage> {
                 height: 50,
               ),
               label: "Coffee Beans",
-              count: 15,
+              count: coffeeBeanCount,
             ),
             DashboardCard(
               icon: const Icon(Icons.local_cafe, size: 50),
               label: "Drinks",
-              count: 25,
+              count: drinkCount,
             ),
             DashboardCard(
               icon: const Icon(Icons.coffee_maker, size: 50),
               label: "Brewing Tools",
-              count: 10,
+              count: toolCount,
             ),
             DashboardCard(
               icon: const Icon(Icons.store, size: 50),
               label: "Stores",
-              count: 5,
+              count: storeCount,
             ),
           ],
         ),

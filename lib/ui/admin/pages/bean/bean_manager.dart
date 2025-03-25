@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../services/bean_service.dart';
 import '../../../../models/bean.dart';
 
@@ -48,24 +51,55 @@ class BeansManager with ChangeNotifier {
     }
   }
 
-  Future<void> deleteBean(String id) async {
+  Future<bool> deleteBean(String id) async {
     final index = _items.indexWhere((item) => item.id == id);
-    if(index >= 0 && !await _beansService.deleteBean(id)) {
-      _items.removeAt(index);
-      notifyListeners();
-
+    if (index >= 0) {
+      bool isDeleted = await _beansService.deleteBean(id);
+      if (isDeleted) {
+        _items.removeAt(index);
+        notifyListeners();
+      }
+      return isDeleted; 
     }
+    return false; 
   }
+
 
   Future<void> fetchBeans() async {
     _items = await _beansService.fetchBeans();
     notifyListeners();
   }
 
+  BeansManager() {
+    loadBeans(); 
+  }
+
   Future<void> fetchUserBeans() async {
-    _items = await _beansService.fetchBeans(
-      filteredByUser: true,
-    );
+    _items = await _beansService.fetchBeans();
+    await saveBeansToLocalStorage(); 
     notifyListeners();
+  }
+
+  Future<void> saveBeansToLocalStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final beansJson = _items.map((bean) => bean.toJson()).toList();
+    await prefs.setString('beans', jsonEncode(beansJson));
+  }
+
+  Future<void> loadBeans() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final beansData = prefs.getString('beans');
+
+      if (beansData != null) {
+        final List<dynamic> decoded = jsonDecode(beansData);
+        _items = decoded.map((data) => Bean.fromJson(data)).toList();
+        notifyListeners();
+      }
+
+      await fetchUserBeans();
+    } catch (error) {
+      print('Error loading beans: $error');
+    }
   }
 }

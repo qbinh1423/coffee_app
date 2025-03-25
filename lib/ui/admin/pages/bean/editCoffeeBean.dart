@@ -52,29 +52,23 @@ class _EditCoffeeBeanState extends State<EditCoffeeBean> {
   }
 
   Future<void> _saveForm() async {
-    print('Bắt đầu lưu form');
-
     final isValid =
         _editForm.currentState!.validate() && _editedBean.hasBeanImage();
-    print('Form hợp lệ: $isValid');
 
     if (!isValid) {
-      print('Form không hợp lệ, dừng lại.');
       return;
     }
 
     _editForm.currentState!.save();
-    print('Dữ liệu sau khi save: $_editedBean');
+    print('Save data: $_editedBean');
 
     try {
-      print('Gọi addBean() với dữ liệu: $_editedBean');
 
       final beansManager = context.read<BeansManager>();
       if (_editedBean.id != null && _editedBean.id!.isNotEmpty) {
         await beansManager.updateBean(_editedBean);
       } else {
         await beansManager.addBean(_editedBean);
-        print(' Đã gọi thành công addBean() để tạo mới.');
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -301,8 +295,12 @@ class _EditCoffeeBeanState extends State<EditCoffeeBean> {
             return;
           }
           setState(() {
-            _editedBean = _editedBean.copyWith(beanImage: File(imageFile.path));
+            _editedBean = _editedBean.copyWith(
+              beanImage: File(imageFile.path),
+              imageUrl: imageFile.path,
+            );
           });
+          print("Image picked: ${imageFile.path}");
         } catch (error) {
           if (mounted) {
             showErrorDialog(context, 'Something went wrong.');

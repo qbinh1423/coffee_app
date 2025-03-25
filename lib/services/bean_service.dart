@@ -14,22 +14,20 @@ class BeansService {
   Future<Bean?> addBean(Bean bean) async {
     try {
       final pb = await getPocketbaseInstance();
-      print('Bắt đầu addBean()...');
       print('PocketBase URL: ${pb.baseUrl}');
 
       if (!pb.authStore.isValid) {
-        print('Người dùng chưa đăng nhập hoặc token không hợp lệ.');
         return null;
       }
 
       print('User ID: ${pb.authStore.model?.id}');
-      print('Dữ liệu gửi lên: ${bean.toJson()}');
+      print('Fetch data: ${bean.toJson()}');
 
       List<http.MultipartFile> files = [];
       if (bean.beanImage != null) {
         final imageBytes = await bean.beanImage!.readAsBytes();
         final filename = bean.beanImage!.uri.pathSegments.last;
-        print('Tải lên file: $filename');
+        print('Upload file: $filename');
 
         files.add(http.MultipartFile.fromBytes(
           'beanImage',
@@ -45,16 +43,14 @@ class BeansService {
         },
         files: files,
       );
-
-      print('Bean đã lưu thành công: ${record.toJson()}');
+      print('Response PocketBase: ${record.toJson()}');
 
       return bean.copyWith(
         id: record.id,
         imageUrl: _getFeaturedImageUrl(pb, record),
       );
-    } catch (e, s) {
-      print('Lỗi khi lưu Bean: $e');
-      print('StackTrace: $s');
+    } catch (error) {
+      print('Error: $error');
       return null;
     }
   }
@@ -98,24 +94,32 @@ class BeansService {
 
   Future<List<Bean>> fetchBeans({bool filteredByUser = false}) async {
     final List<Bean> beans = [];
-
     try {
       final pb = await getPocketbaseInstance();
-      final userId = pb.authStore.record!.id;
-      final beanModels = await pb
-          .collection('bean')
-          .getFullList(filter: filteredByUser ? "userId='$userId'" : null);
+      print('PocketBase URL: ${pb.baseUrl}');
+
+      // print("User is authenticated: ${pb.authStore.isValid}");
+      // print("User ID: ${pb.authStore.model?.id}");
+
+      String? filter;
+
+      if (filteredByUser && pb.authStore.isValid) {
+        final userId = pb.authStore.record?.id;
+        filter = "userId='$userId'";
+      }
+
+      final beanModels =
+          await pb.collection('bean').getFullList(filter: filter);
       for (final beanModel in beanModels) {
         beans.add(
-          Bean.fromJson(
-            beanModel.toJson()
-              ..addAll({'imageUrl': _getFeaturedImageUrl(pb, beanModel)}),
-          ),
+          Bean.fromJson(beanModel.toJson()
+            ..addAll({'imageUrl': _getFeaturedImageUrl(pb, beanModel)})),
         );
       }
       return beans;
     } catch (error) {
-      return beans;
+      print('Error fetching beans: $error');
+      return [];
     }
   }
 }

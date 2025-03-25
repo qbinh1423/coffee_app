@@ -24,6 +24,7 @@ class _AuthCardState extends State<AuthCard> {
   final Map<String, String> _authData = {
     'name': '',
     'email': '',
+    'phone':'',
     'password': '',
   };
   final _isSubmitting = ValueNotifier<bool>(false);
@@ -39,17 +40,16 @@ class _AuthCardState extends State<AuthCard> {
 
     try {
       if (_authMode == AuthMode.login) {
-        // Log user in
         await context.read<AuthManager>().login(
               _authData['email']!,
               _authData['password']!,
             );
       } else {
-        // Sign user up
         await context.read<AuthManager>().signup(
               _authData['name']!,
               _authData['email']!,
               _authData['password']!,
+              _authData['phone']!
             );
         _switchAuthMode();
       }
@@ -95,6 +95,7 @@ class _AuthCardState extends State<AuthCard> {
             child: Column(
               children: <Widget>[
                 if (_authMode == AuthMode.signup) _buildNameField(),
+                if (_authMode == AuthMode.signup) _buildPhoneField(),
                 _buildEmailField(),
                 _buildPasswordField(),
                 if (_authMode == AuthMode.signup) _buildPasswordConfirmField(),
@@ -130,7 +131,7 @@ class _AuthCardState extends State<AuthCard> {
         ),
       ),
       child:
-          Text('${_authMode == AuthMode.login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+          Text('${_authMode == AuthMode.login ? 'SIGNUP' : 'LOGIN'} '),
     );
   }
 
@@ -207,6 +208,19 @@ class _AuthCardState extends State<AuthCard> {
       },
       onSaved: (value) {
         _authData['name'] = value!;
+      },
+    );
+  }
+
+  Widget _buildPhoneField() {
+    return TextFormField(
+      decoration: const InputDecoration(labelText: 'Phone'),
+      keyboardType: TextInputType.phone,
+      validator: (value) {
+        return null;
+      },
+      onSaved: (value) {
+        _authData['phone'] = value!;
       },
     );
   }

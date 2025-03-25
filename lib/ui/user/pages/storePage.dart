@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:coffee_app/ui/user/components/storeCard.dart';
+import 'package:provider/provider.dart';
+import '../../admin/pages/store/store_manager.dart';
 import 'details/storeDetails.dart';
 
 enum FilterOptions { favorites, all }
@@ -16,44 +18,12 @@ class _StorePageState extends State<StorePage> {
   FilterOptions currentFilter = FilterOptions.all;
   final TextEditingController searchController = TextEditingController();
 
-  final List<Map<String, String>> storeData = [
-    {
-      "name": "Blue Bottle Coffee",
-      "location": "1 Ferry Building #7, San Francisco, CA 94111, United State",
-      "imageUrl": "assets/images/blue_bottle_coffee.jpg",
-      "description":
-          "Trendy cafe chain serving pastries, premium coffees, beans and coffee making supplies.",
-      "time": "6:30 - 19:00",
-      "phone": "+15106613510"
-    },
-    {
-      "name": "Stumptown Coffee Roasters",
-      "location": "128 SW 3rd Ave, Portland, OR 97204, United State",
-      "imageUrl": "assets/images/stumptown_coffee_roasters.png",
-      "description":
-          "Trendy cafe chain serving pastries, premium coffees, beans and coffee making supplies.",
-      "time": "07:00 - 17:00",
-      "phone": "+15032956144"
-    },
-    {
-      "name": "The Coffee Roastery",
-      "location": "701 San Anselmo Ave, San Anselmo, CA 94960, United State",
-      "imageUrl": "assets/images/The_Coffee_Roastery.jpeg",
-      "description":
-          "Trendy cafe chain serving pastries, premium coffees, beans and coffee making supplies.",
-      "time": "06:00 - 17:00",
-      "phone": "+14157858077"
-    },
-    {
-      "name": "Morning Brew Coffee & Tea",
-      "location": "401 Sansome St, San Francisco, CA 94111, United State",
-      "imageUrl": "assets/images/Morning_Brew_Coffee_&_Tea.jpg",
-      "description":
-          "Trendy cafe chain serving pastries, premium coffees, beans and coffee making supplies.",
-      "time": "07:00 - 15:00",
-      "phone": "+14159864206"
-    },
-  ];
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+        () => Provider.of<StoreManager>(context, listen: false).fetchStores());
+  }
 
   void _setFilter(FilterOptions selectedValue) {
     setState(() {
@@ -63,6 +33,10 @@ class _StorePageState extends State<StorePage> {
 
   @override
   Widget build(BuildContext context) {
+    var storeManager = Provider.of<StoreManager>(context);
+    var stores = storeManager.items;
+    print("Stores: ${storeManager.items}");
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Padding(
@@ -112,33 +86,25 @@ class _StorePageState extends State<StorePage> {
             const SizedBox(height: 15),
             Expanded(
               child: ListView.builder(
-                itemCount: storeData.length,
+                itemCount: stores.length,
                 itemBuilder: (context, index) {
-                  final store = storeData[index];
+                  final store = stores[index];
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => StoreDetails(
-                            storeName: store["name"]!,
-                            storeLocation: store["location"]!,
-                            imageUrl: store["imageUrl"]!,
-                            description: store["description"]!,
-                            phone: store["phone"]!,
-                            time: store["time"]!,
+                            storeName: store.name,
+                            storeLocation: store.location,
+                            imageUrl: store.imageUrl,
+                            description: store.description,
+                            phone: store.phone,
                           ),
                         ),
                       );
                     },
-                    child: StoreCard(
-                      storeName: store["name"]!,
-                      storeLocation: store["location"]!,
-                      imageUrl: store["imageUrl"]!,
-                      description: "",
-                      phone: "",
-                      time: "",
-                    ),
+                    child: StoreCard(store: store),
                   );
                 },
               ),

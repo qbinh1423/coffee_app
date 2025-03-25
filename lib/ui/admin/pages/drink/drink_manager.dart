@@ -1,10 +1,17 @@
+import 'dart:convert';
+
 import 'package:coffee_app/models/drink.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../services/drink_service.dart';
 
 class DrinkManager with ChangeNotifier {
   final DrinkService _drinkService = DrinkService();
+  
+  DrinkManager() {
+    loadDrink();
+  }
   
   List<Drink> _items = [];
 
@@ -30,8 +37,8 @@ class DrinkManager with ChangeNotifier {
     }
   }
 
-  Future<void> addDrink(Drink drink, String userId, String toolId) async {
-    final newDrink = await _drinkService.addDrink(drink, userId, toolId);
+  Future<void> addDrink(Drink drink, String toolId) async {
+    final newDrink = await _drinkService.addDrink(drink, toolId);
     if(newDrink != null) {
       _items.add(newDrink);
       notifyListeners();
@@ -49,12 +56,17 @@ class DrinkManager with ChangeNotifier {
     }
   }
 
-  Future<void> deleteDrink(String id) async {
+  Future<bool> deleteDrink(String id) async {
     final index = _items.indexWhere((item) => item.id == id);
-    if (index >= 0 && !await _drinkService.deleteDrink(id)) {
-      _items.removeAt(index);
-      notifyListeners();
+    if (index >= 0) {
+      bool isDeleted = await _drinkService.deleteDrink(id);
+      if (isDeleted) {
+        _items.removeAt(index);
+        notifyListeners();
+      }
+      return isDeleted;
     }
+    return false;
   }
 
 
@@ -67,6 +79,30 @@ class DrinkManager with ChangeNotifier {
     _items = await _drinkService.fetchDrink(
       filteredByUser: true,
     );
+    await saveDrinkToLocalStorage(); 
     notifyListeners();
+  }
+
+  Future<void> saveDrinkToLocalStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final drinkJson = _items.map((drink) => drink.toJson()).toList();
+    await prefs.setString('drink', jsonEncode(drinkJson));
+  }
+
+  Future<void> loadDrink() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final drinkData = prefs.getString('drink');
+
+      if (drinkData != null) {
+        final List<dynamic> decoded = jsonDecode(drinkData);
+        _items = decoded.map((data) => Drink.fromJson(data)).toList();
+        notifyListeners();
+      }
+
+      await fetchUserDrinks();
+    } catch (error) {
+      print('Error loading drink: $error');
+    }
   }
 }

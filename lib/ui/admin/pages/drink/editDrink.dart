@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:coffee_app/models/drink.dart';
+import 'package:coffee_app/models/tool.dart';
 import 'package:coffee_app/ui/admin/pages/drink/drink_manager.dart';
 import 'package:coffee_app/ui/shared/dialog_utils.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import '../../../../theme/theme.dart';
 import '../../../../theme/themeProvider.dart';
 import '../../../auth/auth_manager.dart';
 import '../../components/adminDrawer.dart';
+import '../tool/toolManager.dart';
 
 class EditDrink extends StatefulWidget {
   static const routeName = '/edit_drink';
@@ -27,7 +29,7 @@ class EditDrink extends StatefulWidget {
         caffeine: '',
         description: '',
         origin: '',
-        imageUrl: '', 
+        imageUrl: '',
         ingredients: [],
       );
     } else {
@@ -37,7 +39,6 @@ class EditDrink extends StatefulWidget {
 
   late final Drink drink;
 
-
   @override
   State<EditDrink> createState() => _EditDrinkState();
 }
@@ -46,29 +47,36 @@ class _EditDrinkState extends State<EditDrink> {
   final _editForm = GlobalKey<FormState>();
   late Drink _editedDrink;
 
+  late List<Tool> _tools = [];
+  String? selectedToolId;
+
   @override
   void initState() {
     super.initState();
     _editedDrink = widget.drink;
+    WidgetsBinding.instance.addPostFrameCallback((_) => _loadTools());
   }
 
   Future<void> _saveFormDrink() async {
-    print('Bắt đầu lưu form');
 
     final isValid =
         _editForm.currentState!.validate() && _editedDrink.hasDrinkImage();
-    print('Form hợp lệ: $isValid');
 
     if (!isValid) {
-      print('Form không hợp lệ, dừng lại.');
       return;
     }
 
-    final userId = context.read<AuthManager>().user?.id;
-    final toolId = _editedDrink.toolId;
+    if (selectedToolId == null) {
+      return;
+    }
+    print('ToolId: $selectedToolId');
+
+    final authManager = context.read<AuthManager>();
+    final userId = authManager.user?.id;
+    final toolId = selectedToolId;
+
 
     if (userId == null || toolId == null) {
-      print('userId hoặc toolId đang null, dừng lại.');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('User ID hoặc Tool ID không hợp lệ!')),
       );
@@ -76,18 +84,16 @@ class _EditDrinkState extends State<EditDrink> {
     }
 
     _editForm.currentState!.save();
-    print('Dữ liệu sau khi save: $_editedDrink');
+    print('Save data: $_editedDrink');
+    print('Save ToolID : ${_editedDrink.toolId}');
 
     try {
-      print('Gọi addDrink() với dữ liệu: $_editedDrink');
 
       final drinkManager = context.read<DrinkManager>();
-      if (_editedDrink.id != null && _editedDrink.id!.isNotEmpty) {
-        await drinkManager.updateDrink(_editedDrink, userId, toolId);
-        print('Drink đã được cập nhật.');
+      if (_editedDrink.id?.isNotEmpty == true) {
+        await drinkManager.updateDrink(_editedDrink, userId, selectedToolId!);
       } else {
-        await drinkManager.addDrink(_editedDrink, userId, toolId);
-        print('Drink mới đã được tạo.');
+        await drinkManager.addDrink(_editedDrink, selectedToolId!);
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -97,11 +103,31 @@ class _EditDrinkState extends State<EditDrink> {
     } catch (error) {
       debugPrint('Error saving form: $error');
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Lỗi khi lưu Drink!')),
+        const SnackBar(content: Text('Error!')),
       );
     }
   }
 
+  Future<void> _loadTools() async {
+    try {
+      final toolManager = context.read<ToolManager>();
+      await toolManager.fetchTool();
+
+      print('Fetched Tools: ${toolManager.items}');
+      if (!mounted) return;
+
+      setState(() {
+        _tools = toolManager.items;
+
+        selectedToolId ??=
+            _editedDrink.toolId ?? (_tools.isNotEmpty ? _tools.first.id : null);
+      });
+
+      print('Tools Loaded: $_tools, Selected Tool ID: $selectedToolId');
+    } catch (error) {
+      print('Error loading tools: $error');
+    }
+  }
 
   Future<void> showErrorDialog(BuildContext context, String message) {
     return showDialog(
@@ -121,15 +147,16 @@ class _EditDrinkState extends State<EditDrink> {
     );
   }
 
-    @override
+  @override
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<ThemeProvider>(context);
+    print('Build method called');
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text(
-          "Edit Coffee Bean",
+          "Edit Drink",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -168,6 +195,7 @@ class _EditDrinkState extends State<EditDrink> {
               children: <Widget>[
                 _buildNameField(),
                 _buildOriginField(),
+                _buildToolField(),
                 _builCaffeineField(),
                 _buildDescriptionField(),
                 _buildIngredientsField(),
@@ -207,6 +235,44 @@ class _EditDrinkState extends State<EditDrink> {
       },
       onSaved: (value) {
         _editedDrink = _editedDrink.copyWith(name: value);
+      },
+    );
+  }
+
+  DropdownButtonFormField<String> _buildToolField() {
+    print('Tools List: $_tools');
+    print('Selected Tool ID: $selectedToolId');
+
+    if (_tools.isEmpty) {
+      return DropdownButtonFormField<String>(
+        value: null,
+        decoration: const InputDecoration(labelText: 'Tool'),
+        items: [],
+        onChanged: null,
+      );
+    }
+
+    return DropdownButtonFormField<String>(
+      value: selectedToolId ?? _tools.first.id,
+      decoration: const InputDecoration(labelText: 'Tool'),
+      items: _tools.map((tool) {
+        print('Tool Item: ${tool.name}, ID: ${tool.id}');
+        return DropdownMenuItem(
+          value: tool.id,
+          child: Text(tool.name),
+        );
+      }).toList(),
+      onChanged: (value) {
+        if (value == null) return;
+        setState(() {
+          selectedToolId = value;
+          _editedDrink = _editedDrink.copyWith(toolId: value);
+        });
+        print('Selected Tool: $value');
+      },
+      validator: (value) => value == null ? 'Please select a tool' : null,
+      onSaved: (value) {
+        _editedDrink = _editedDrink.copyWith(toolId: value);
       },
     );
   }
@@ -297,7 +363,8 @@ class _EditDrinkState extends State<EditDrink> {
             return;
           }
           setState(() {
-            _editedDrink = _editedDrink.copyWith(drinkImage: File(imageFile.path));
+            _editedDrink =
+                _editedDrink.copyWith(drinkImage: File(imageFile.path));
           });
         } catch (error) {
           if (mounted) {
@@ -339,5 +406,4 @@ class _EditDrinkState extends State<EditDrink> {
       ],
     );
   }
-
 }

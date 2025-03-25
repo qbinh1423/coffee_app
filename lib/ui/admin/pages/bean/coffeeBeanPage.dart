@@ -18,13 +18,11 @@ class CoffeeBeanPage extends StatefulWidget {
 }
 
 class _CoffeeBeanPageState extends State<CoffeeBeanPage> {
-  // final List<Map<String, String>> beansData = [];
-
 
   @override
   void initState() {
     super.initState();
-    // _fetchBeans = context.read<BeansManager>().fetchBeans();
+    Future.microtask(() => context.read<BeansManager>().loadBeans());
   }
 
   @override
@@ -94,7 +92,7 @@ class _CoffeeBeanPageState extends State<CoffeeBeanPage> {
       body: Consumer<BeansManager>(
         builder: (context, beansManager, _) {
           if (beansManager.items.isEmpty) {
-            return const Center(child: Text("No beans available!"));
+            return const Center(child: CircularProgressIndicator());
           }
 
           return GridView.builder(

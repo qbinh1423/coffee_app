@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 
-class StoreCard extends StatefulWidget {
-  final String storeName;
-  final String storeLocation;
-  final String imageUrl;
-  final String? description;
-  final String? phone;
-  final String? time;
+import '../../../models/store.dart';
 
-  const StoreCard({
-    super.key,
-    required this.storeName,
-    required this.storeLocation,
-    required this.imageUrl,
-    this.description,
-    this.phone,
-    this.time,
-  });
+class StoreCard extends StatefulWidget {
+  // final String storeName;
+  // final String storeLocation;
+  // final String imageUrl;
+  // final String? description;
+  // final String? phone;
+  // final String? time;
+
+  // const StoreCard({
+  //   super.key,
+  //   required this.storeName,
+  //   required this.storeLocation,
+  //   required this.imageUrl,
+  //   this.description,
+  //   this.phone,
+  //   this.time,
+  // });
+
+  final Store store;
+  const StoreCard({super.key, required this.store});
 
   @override
   State<StoreCard> createState() => _StoreCardState();
@@ -32,6 +37,12 @@ class _StoreCardState extends State<StoreCard> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    debugPrint("Store Data: ${widget.store.toJson()}");
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -42,8 +53,8 @@ class _StoreCardState extends State<StoreCard> {
         children: [
           Stack(
             children: [
-              Image.asset(
-                widget.imageUrl,
+              Image.network(
+                widget.store.imageUrl,
                 width: double.infinity,
                 height: 160,
                 fit: BoxFit.cover,
@@ -67,7 +78,7 @@ class _StoreCardState extends State<StoreCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.storeName,
+                  widget.store.name,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -81,7 +92,7 @@ class _StoreCardState extends State<StoreCard> {
                     const SizedBox(width: 5),
                     Expanded(
                       child: Text(
-                        widget.storeLocation,
+                        widget.store.location,
                       ),
                     ),
                   ],

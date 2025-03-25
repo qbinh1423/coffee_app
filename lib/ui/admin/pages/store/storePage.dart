@@ -17,11 +17,12 @@ class StorePage extends StatefulWidget {
 }
 
 class _StorePageState extends State<StorePage> {
-  // final List<Map<String, String>> storeData = [];
 
   @override
   void initState() {
     super.initState();
+    Future.microtask(() => context.read<StoreManager>().loadStores());
+
   }
 
   @override
@@ -92,7 +93,7 @@ class _StorePageState extends State<StorePage> {
       body: Consumer<StoreManager>(
         builder: (context, storeManager, _) {
           if (storeManager.items.isEmpty) {
-            return const Center(child: Text("No store available!"));
+            return const Center(child: CircularProgressIndicator());
           }
 
           return GridView.builder(

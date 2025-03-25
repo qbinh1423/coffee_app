@@ -54,29 +54,23 @@ class _EditStoreState extends State<EditStore> {
 
 
   Future<void> _saveFormStore() async {
-    print('Bắt đầu lưu form');
 
     final isValid =
         _editForm.currentState!.validate() && _editedStore.hasStoreImage();
-    print('Form hợp lệ: $isValid');
 
     if (!isValid) {
-      print('Form không hợp lệ, dừng lại.');
       return;
     }
 
     _editForm.currentState!.save();
-    print('Dữ liệu sau khi save: $_editedStore');
 
     try {
-      print('Gọi addStore() với dữ liệu: $_editedStore');
 
       final storeManager = context.read<StoreManager>();
       if (_editedStore.id != null && _editedStore.id!.isNotEmpty) {
         await storeManager.updateStore(_editedStore);
       } else {
         await storeManager.addStore(_editedStore);
-        print(' Đã gọi thành công addStore() để tạo mới.');
       }
 
       ScaffoldMessenger.of(context).showSnackBar(

@@ -9,12 +9,19 @@ import '../../../../theme/theme.dart';
 import '../../../../theme/themeProvider.dart';
 import '../../components/adminDrawer.dart';
 
-class DrinkPage extends StatelessWidget {
+class DrinkPage extends StatefulWidget {
   const DrinkPage({super.key});
 
-  // final List<Map<String, String>> drinksData = [
-   
-  // ];
+  @override
+  State<DrinkPage> createState() => _DrinkPageState();
+}
+
+class _DrinkPageState extends State<DrinkPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() => context.read<DrinkManager>().loadDrink());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +90,7 @@ class DrinkPage extends StatelessWidget {
       body: Consumer<DrinkManager>(
         builder: (context, drinkManager, _) {
           if (drinkManager.items.isEmpty) {
-            return const Center(child: Text("No beans available!"));
+            return const Center(child: CircularProgressIndicator());          
           }
 
           return GridView.builder(
