@@ -132,7 +132,8 @@ class _DrinkDetailsState extends State<DrinkDetails> {
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
               child: ListView(
                 children: [
                   GestureDetector(
