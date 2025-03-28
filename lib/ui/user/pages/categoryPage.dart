@@ -234,8 +234,6 @@ class _CategoryPageState extends State<CategoryPage> {
 
   Widget _buildToolsList(BuildContext context) {
     final tools = context.watch<ToolManager>().items;
-    print("Tools List: $tools");
-
     if (tools.isEmpty) {
       return const Center(child: Text("No tools available"));
     }

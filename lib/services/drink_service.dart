@@ -14,7 +14,6 @@ class DrinkService {
   Future<Drink?> addDrink(Drink drink) async {
     try {
       final pb = await getPocketbaseInstance();
-      print('PocketBase URL: ${pb.baseUrl}');
 
       if (!pb.authStore.isValid) {
         return null;
@@ -24,7 +23,6 @@ class DrinkService {
       if (drink.drinkImage != null) {
         final imageBytes = await drink.drinkImage!.readAsBytes();
         final filename = drink.drinkImage!.uri.pathSegments.last;
-        print('Upload file: $filename');
 
         files.add(http.MultipartFile.fromBytes(
           'drinkImage',
@@ -40,9 +38,6 @@ class DrinkService {
         },
         files: files,
       );
-
-      print('Save data: ${record.toJson()}');
-
       return drink.copyWith(
         id: record.id,
         imageUrl: _getFeaturedImageUrl(pb, record),
@@ -96,7 +91,6 @@ class DrinkService {
 
     try {
       final pb = await getPocketbaseInstance();
-      print('PocketBase URL: ${pb.baseUrl}');
 
       String? filter;
 

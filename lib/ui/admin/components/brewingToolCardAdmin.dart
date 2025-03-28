@@ -19,7 +19,6 @@ class _BrewingToolCardAdminState extends State<BrewingToolCardAdmin> {
   @override
   void initState() {
     super.initState();
-    print("Tool Data: ${widget.tool.toJson()}");
   }
 
   Future<void> _deleteTool(String id) async {

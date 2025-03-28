@@ -33,7 +33,6 @@ class _DashboardPageState extends State<DashboardPage> {
 
   Future<void> _loadDashboardData() async {
     final users = await _dashboardService.fetchUserCount();
-    print('Total users with role "user": $userCount');
     final coffeeBeans = await _dashboardService.fetchItemCount('bean');
     final drinks = await _dashboardService.fetchItemCount('drink');
     final tools = await _dashboardService.fetchItemCount('tool');

@@ -16,7 +16,6 @@ class _BeansCardState extends State<BeansCard> {
   @override
   void initState() {
     super.initState();
-    print("Bean Data: ${widget.bean.toJson()}");
   }
 
   @override

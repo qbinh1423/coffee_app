@@ -14,7 +14,6 @@ class _StoreCardState extends State<StoreCard> {
   @override
   void initState() {
     super.initState();
-    print("Store Data: ${widget.store.toJson()}");
   }
 
   @override

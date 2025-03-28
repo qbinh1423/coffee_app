@@ -14,7 +14,6 @@ class BeansService {
   Future<Bean?> addBean(Bean bean) async {
     try {
       final pb = await getPocketbaseInstance();
-      print('PocketBase URL: ${pb.baseUrl}');
 
       if (!pb.authStore.isValid) {
         return null;
@@ -23,7 +22,6 @@ class BeansService {
       if (bean.beanImage != null) {
         final imageBytes = await bean.beanImage!.readAsBytes();
         final filename = bean.beanImage!.uri.pathSegments.last;
-        print('Upload file: $filename');
 
         files.add(http.MultipartFile.fromBytes(
           'beanImage',
@@ -39,7 +37,6 @@ class BeansService {
         },
         files: files,
       );
-      print('Response PocketBase: ${record.toJson()}');
       return bean.copyWith(
         id: record.id,
         imageUrl: _getFeaturedImageUrl(pb, record),
@@ -90,7 +87,6 @@ class BeansService {
     final List<Bean> beans = [];
     try {
       final pb = await getPocketbaseInstance();
-      print('PocketBase URL: ${pb.baseUrl}');
 
       String? filter;
 

@@ -52,13 +52,6 @@ class StoreManager with ChangeNotifier {
     }
   }
 
-  // Future<void> fetchStores() async {
-  //   final fetchedStores = await _storeService.fetchStore();
-  //   _items = fetchedStores;
-
-  //   notifyListeners();
-  // }
-
   Future<void> fetchUserStore() async {
     final fetchedStores = await _storeService.fetchStore();
     _items = fetchedStores;

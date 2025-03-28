@@ -17,7 +17,6 @@ class _StoreCardAdminState extends State<StoreCardAdmin> {
   @override
   void initState() {
     super.initState();
-    debugPrint("Store Data: ${widget.store.toJson()}");
   }
 
   Future<void> _deleteStore(String id) async {

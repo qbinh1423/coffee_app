@@ -55,7 +55,6 @@ class _EditDrinkState extends State<EditDrink> {
     super.initState();
     _editedDrink = widget.drink;
     selectedToolId = List<String>.from(widget.drink.toolId);
-    print("Selected toolId on Edit: $selectedToolId");
     WidgetsBinding.instance.addPostFrameCallback((_) => _loadTools());
   }
 

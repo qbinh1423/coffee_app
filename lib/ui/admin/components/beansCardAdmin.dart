@@ -19,7 +19,6 @@ class _BeansCardAdminState extends State<BeansCardAdmin> {
   @override
   void initState() {
     super.initState();
-    print("Bean Data: ${widget.bean.toJson()}");
   }
 
   Future<void> _deleteBean(String id) async {

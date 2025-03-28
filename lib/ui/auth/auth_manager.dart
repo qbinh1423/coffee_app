@@ -63,9 +63,6 @@ class AuthManager with ChangeNotifier {
   Future<bool> deleteUser(String userId) async {
     try {
       await _authService.deleteUser(userId);
-
-      print('Delete user successfully: $userId');
-
       notifyListeners();
       return true;
     } catch (error) {

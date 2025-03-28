@@ -56,8 +56,6 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
 
   @override
   Widget build(BuildContext context) {
-    print("Drink Name: ${widget.drink.name}");
-
     return Padding(
       padding: const EdgeInsets.only(left: 17.0, bottom: 25.0),
       child: Container(

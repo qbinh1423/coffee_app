@@ -14,7 +14,6 @@ class StoreService {
   Future<Store?> addStore(Store store) async {
     try {
       final pb = await getPocketbaseInstance();
-      print('PocketBase URL: ${pb.baseUrl}');
 
       if (!pb.authStore.isValid) {
         return null;
@@ -24,7 +23,6 @@ class StoreService {
       if (store.storeImage != null) {
         final imageBytes = await store.storeImage!.readAsBytes();
         final filename = store.storeImage!.uri.pathSegments.last;
-        print('Upload file: $filename');
 
         files.add(http.MultipartFile.fromBytes(
           'storeImage',
@@ -40,9 +38,6 @@ class StoreService {
         },
         files: files,
       );
-
-      print('Store data: ${record.toJson()}');
-
       return store.copyWith(
         id: record.id,
         imageUrl: _getFeaturedImageUrl(pb, record),
@@ -95,21 +90,16 @@ class StoreService {
 
     try {
       final pb = await getPocketbaseInstance();
-      print('PocketBase URL: ${pb.baseUrl}');
       String? filter;
 
       if (filteredByUser && pb.authStore.isValid) {
         final userId = pb.authStore.record?.id;
         filter = "userId='$userId' || userId='' || userId='admin'";
-        print("Applying filter: $filter");
       }
       final storeModels =
           await pb.collection('store').getFullList(filter: filter);
-      print('Fetched ${storeModels.length} store from PocketBase.');
 
       for (final storeModel in storeModels) {
-        print('Store data: ${storeModel.toJson()}');
-
         final imageUrl = _getFeaturedImageUrl(pb, storeModel);
         stores.add(
           Store.fromJson(

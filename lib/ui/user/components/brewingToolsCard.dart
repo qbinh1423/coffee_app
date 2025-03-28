@@ -16,7 +16,6 @@ class _BrewingToolsCardState extends State<BrewingToolsCard> {
   @override
   void initState() {
     super.initState();
-    print("Tool Data: ${widget.tool.toJson()}");
   }
 
   @override

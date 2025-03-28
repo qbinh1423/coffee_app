@@ -13,8 +13,6 @@ class ToolService {
   Future<Tool?> addTool(Tool tool) async {
     try {
       final pb = await getPocketbaseInstance();
-      print('PocketBase URL: ${pb.baseUrl}');
-
       if (!pb.authStore.isValid) {
         return null;
       }
@@ -23,8 +21,6 @@ class ToolService {
       if (tool.toolImage != null) {
         final imageBytes = await tool.toolImage!.readAsBytes();
         final filename = tool.toolImage!.uri.pathSegments.last;
-        print('Upload file: $filename');
-
         files.add(http.MultipartFile.fromBytes(
           'toolImage',
           imageBytes,
@@ -39,8 +35,6 @@ class ToolService {
         },
         files: files,
       );
-
-      print('Data: ${record.toJson()}');
 
       return tool.copyWith(
         id: record.id,
@@ -66,11 +60,7 @@ class ToolService {
 
       final toolModels =
           await pb.collection('tool').getFullList(filter: filter);
-      print(' Fetched ${toolModels.length} beans from PocketBase.');
-
       for (final toolModel in toolModels) {
-        print('Tool data: ${toolModel.toJson()}');
-
         tools.add(
           Tool.fromJson(
             toolModel.toJson()
