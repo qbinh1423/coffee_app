@@ -88,7 +88,7 @@ class _ShareAppState extends State<ShareApp> {
                 height: 60,
                 child: ListTile(
                   title: Text(
-                    'https://cafely.com/blogs/research/coffee-facts',
+                    'https://primecoffea.com',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onPrimary,
