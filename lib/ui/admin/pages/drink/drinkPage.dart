@@ -9,7 +9,6 @@ import '../../../../theme/theme.dart';
 import '../../../../theme/themeProvider.dart';
 import 'package:coffee_app/ui/screens.dart';
 
-
 class DrinkPage extends StatefulWidget {
   const DrinkPage({super.key});
 
@@ -99,8 +98,7 @@ class _DrinkPageState extends State<DrinkPage> {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 5,
-              mainAxisSpacing: 12,
-              childAspectRatio: 0.7,
+              childAspectRatio: 0.56,
             ),
             itemCount: drinkManager.items.length,
             itemBuilder: (context, index) {

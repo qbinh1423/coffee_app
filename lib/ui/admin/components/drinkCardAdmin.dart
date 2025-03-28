@@ -56,6 +56,8 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
 
   @override
   Widget build(BuildContext context) {
+    print("Drink Name: ${widget.drink.name}");
+
     return Padding(
       padding: const EdgeInsets.only(left: 17.0, bottom: 25.0),
       child: Container(
@@ -70,15 +72,11 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: SizedBox(
+              child: Image.network(
+                widget.drink.imageUrl,
                 width: 180,
                 height: 150,
-                child: Image.network(
-                  widget.drink.imageUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) =>
-                      const Icon(Icons.image_not_supported, size: 50),
-                ),
+                fit: BoxFit.cover,
               ),
             ),
             const SizedBox(height: 8),
@@ -91,7 +89,9 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
                   children: [
                     Text(
                       widget.drink.name,
+                      maxLines: 2,
                       style: const TextStyle(fontSize: 20),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),
