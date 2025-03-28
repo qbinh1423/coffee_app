@@ -18,10 +18,6 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
   }
 
   Future<void> _deleteDrink(String id) async {
-    if (id.isEmpty) {
-      return;
-    }
-
     final drinkManager = context.read<DrinkManager>();
     bool isDeleted = await drinkManager.deleteDrink(id);
 
@@ -35,10 +31,7 @@ class _DrinkCardAdminState extends State<DrinkCardAdmin> {
           backgroundColor: Colors.green.shade200,
         ),
       );
-      await drinkManager.fetchDrink();
-      if (mounted) {
-        setState(() {});
-      }
+      setState(() {});
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
