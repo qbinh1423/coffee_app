@@ -1,0 +1,2 @@
+C:/Users/LENOVO/Pictures/Dowload/coffee_app/android/app/.cxx/RelWithDebInfo/4g194o52/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/LENOVO/Pictures/Dowload/coffee_app/android/app/.cxx/RelWithDebInfo/4g194o52/x86_64/CMakeFiles/rebuild_cache.dir
