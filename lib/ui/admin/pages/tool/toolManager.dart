@@ -17,10 +17,6 @@ class ToolManager with ChangeNotifier {
     return [..._items];
   }
 
-  List<Tool> get favoriteItems {
-    return _items.where((item) => item.isFavorite).toList();
-  }
-
   Tool? findById(String id) {
     try {
       return _items.firstWhere((item) => item.id == id);

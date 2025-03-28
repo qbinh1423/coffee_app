@@ -12,7 +12,6 @@ import '../../../../theme/theme.dart';
 import '../../../../theme/themeProvider.dart';
 import 'package:coffee_app/ui/screens.dart';
 
-
 class EditDrink extends StatefulWidget {
   static const routeName = '/edit_drink';
 
@@ -69,7 +68,10 @@ class _EditDrinkState extends State<EditDrink> {
     try {
       final drinkManager = context.read<DrinkManager>();
       if (_editedDrink.id != null && _editedDrink.id!.isNotEmpty) {
+        debugPrint('Before update: ${_editedDrink.toJson()}');
+
         await drinkManager.updateDrink(_editedDrink);
+        debugPrint('apter update: ${_editedDrink.toJson()}');
       } else {
         await drinkManager.addDrink(_editedDrink);
       }

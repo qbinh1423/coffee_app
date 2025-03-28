@@ -21,10 +21,6 @@ class StoreManager with ChangeNotifier {
     return [..._items];
   }
 
-  List<Store> get favoriteItems {
-    return _items.where((item) => item.isFavorite).toList();
-  }
-
   Store? findById(String id) {
     try {
       return _items.firstWhere((item) => item.id == id);

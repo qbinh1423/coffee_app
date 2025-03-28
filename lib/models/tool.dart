@@ -9,7 +9,6 @@ class Tool {
   final String description;
   final File? toolImage;
   final String imageUrl;
-  final bool isFavorite;
 
   Tool({
     this.id,
@@ -20,7 +19,6 @@ class Tool {
     required this.description,
     this.toolImage,
     this.imageUrl = '',
-    this.isFavorite = false,
   });
 
   Tool copyWith({
@@ -32,7 +30,6 @@ class Tool {
     String? description,
     File? toolImage,
     String? imageUrl,
-    bool? isFavorite,
   }) {
     return Tool(
       id: id ?? this.id,
@@ -43,7 +40,6 @@ class Tool {
       description: description ?? this.description,
       toolImage: toolImage ?? this.toolImage,
       imageUrl: imageUrl ?? this.imageUrl,
-      isFavorite: isFavorite ?? this.isFavorite,
     );
   }
 
@@ -59,7 +55,6 @@ class Tool {
       'material': material,
       'description': description,
       'imageUrl': imageUrl,
-      'isFavorite': isFavorite,
     };
   }
 

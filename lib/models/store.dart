@@ -10,7 +10,6 @@ class Store {
   final String description;
   final File? storeImage;
   final String imageUrl;
-  final bool isFavorite;
 
   Store({
     this.id,
@@ -22,7 +21,6 @@ class Store {
     required this.description,
     this.storeImage,
     this.imageUrl = '',
-    this.isFavorite = false,
   });
 
   Store copyWith({
@@ -35,7 +33,6 @@ class Store {
     String? description,
     File? storeImage,
     String? imageUrl,
-    bool? isFavorite,
   }) {
     return Store(
       id: id ?? this.id,
@@ -47,7 +44,6 @@ class Store {
       description: description ?? this.description,
       storeImage: storeImage ?? this.storeImage,
       imageUrl: imageUrl ?? this.imageUrl,
-      isFavorite: isFavorite ?? this.isFavorite,
     );
   }
 
@@ -59,7 +55,6 @@ class Store {
       'startTime': startTime,
       'endTime': endTime,
       'description': description,
-      'isFavorite': isFavorite,
     };
   }
 
@@ -72,7 +67,6 @@ class Store {
       startTime: json['startTime'],
       endTime: json['endTime'],
       description: json['description'],
-      isFavorite: json['isFavorite'] ?? false,
       imageUrl: json['imageUrl'] ?? '',
     );
   }

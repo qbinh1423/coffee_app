@@ -18,10 +18,6 @@ class BeansManager with ChangeNotifier {
     return [..._items];
   }
 
-  List<Bean> get favoriteItems {
-    return _items.where((item) => item.isFavorite).toList();
-  }
-
   Bean? findById(String id) {
     try {
       return _items.firstWhere((item) => item.id == id);

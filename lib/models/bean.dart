@@ -10,7 +10,6 @@ class Bean {
   final String origin;
   final File? beanImage;
   final String imageUrl;
-  final bool isFavorite;
 
   Bean({
     this.id,
@@ -22,7 +21,6 @@ class Bean {
     required this.origin,
     this.beanImage,
     this.imageUrl = '',
-    this.isFavorite = false,
   });
 
   Bean copyWith({
@@ -35,7 +33,6 @@ class Bean {
     String? origin, 
     File? beanImage,
     String? imageUrl,
-    bool? isFavorite,
   }) {
     return Bean(
       id: id ?? this.id,
@@ -47,7 +44,6 @@ class Bean {
       origin: origin ?? this.origin,
       beanImage: beanImage ?? this.beanImage,
       imageUrl: imageUrl ?? this.imageUrl,
-      isFavorite: isFavorite ?? this.isFavorite
     );
   }
 
@@ -73,7 +69,6 @@ class Bean {
       'description': description,
       'origin': origin,
       'imageUrl': imageUrl,
-      'isFavorite': isFavorite
     };
   }
 
