@@ -3,11 +3,11 @@
     package="io.flutter.plugins.flutter_plugin_android_lifecycle"
     minSdkVersion="19"
     targetSdkVersion="19"
-    mergedManifest="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml"
-    manifestMergeReport="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\outputs\logs\manifest-merger-release-report.txt"
-    proguardFiles="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\default_proguard_files\global\proguard-android.txt-8.2.0"
+    mergedManifest="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml"
+    manifestMergeReport="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\outputs\logs\manifest-merger-release-report.txt"
+    proguardFiles="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\default_proguard_files\global\proguard-android.txt-8.2.0"
     consumerProguardFiles="proguard.txt"
-    partialResultsDir="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\lint_partial_results\release\out">
+    partialResultsDir="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\lint_partial_results\release\out">
   <buildFeatures
       namespacing="REQUIRED"/>
   <sourceProviders>
@@ -28,11 +28,11 @@
   <testFixturesSourceProviders>
   </testFixturesSourceProviders>
   <artifact
-      classOutputs="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\javac\release\classes;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\compile_r_class_jar\release\R.jar"
+      classOutputs="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\javac\release\classes;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\compile_r_class_jar\release\R.jar"
       type="MAIN"
       applicationId="io.flutter.plugins.flutter_plugin_android_lifecycle"
-      generatedSourceFolders="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\generated\ap_generated_sources\release\out"
-      generatedResourceFolders="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\generated\res\resValues\release"
+      generatedSourceFolders="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\generated\ap_generated_sources\release\out"
+      generatedResourceFolders="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\generated\res\resValues\release"
       desugaredMethodsFiles="C:\Users\LENOVO\.gradle\caches\transforms-3\a519d7248af7e3360346b259cd1f6ee8\transformed\D8BackportedDesugaredMethods.txt">
   </artifact>
   <testArtifact>

@@ -21,8 +21,8 @@ io.flutter.plugins.urllauncher.url_launcher_android-jetified-activity-1.8.1-19 C
 io.flutter.plugins.urllauncher.url_launcher_android-fragment-1.7.1-20 C:\Users\LENOVO\.gradle\caches\transforms-3\f8f8358889c17e2c1295bec3da1e5a4c\transformed\fragment-1.7.1\res
 io.flutter.plugins.urllauncher.url_launcher_android-main-21 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\android\src\main\res
 io.flutter.plugins.urllauncher.url_launcher_android-release-22 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\url_launcher_android-6.3.14\android\src\release\res
-io.flutter.plugins.urllauncher.url_launcher_android-pngs-23 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\generated\res\pngs\release
-io.flutter.plugins.urllauncher.url_launcher_android-resValues-24 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\generated\res\resValues\release
-io.flutter.plugins.urllauncher.url_launcher_android-mergeReleaseResources-25 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
-io.flutter.plugins.urllauncher.url_launcher_android-mergeReleaseResources-26 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-io.flutter.plugins.urllauncher.url_launcher_android-merged_res-27 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_res\release
+io.flutter.plugins.urllauncher.url_launcher_android-pngs-23 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\generated\res\pngs\release
+io.flutter.plugins.urllauncher.url_launcher_android-resValues-24 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\generated\res\resValues\release
+io.flutter.plugins.urllauncher.url_launcher_android-mergeReleaseResources-25 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.urllauncher.url_launcher_android-mergeReleaseResources-26 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.urllauncher.url_launcher_android-merged_res-27 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_res\release

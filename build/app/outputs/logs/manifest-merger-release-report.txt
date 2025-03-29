@@ -1,13 +1,13 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:2:5-33:19
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:2:5-33:19
-MERGED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-33:19
-MERGED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-33:19
-MERGED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:5-32:19
-MERGED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:5-32:19
-MERGED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-12:19
-MERGED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-12:19
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:2:5-33:19
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:2:5-33:19
+MERGED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-33:19
+MERGED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-33:19
+MERGED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:5-32:19
+MERGED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:5-32:19
+MERGED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:36:5-42:19
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:36:5-42:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\LENOVO\.gradle\caches\transforms-3\438ef7bf843f8d4d1357d23ee1eede85\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
@@ -31,29 +31,29 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\LE
 MERGED from [com.google.maps.android:android-maps-utils:3.6.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0816ead6508568ec82385dee0679feef\transformed\jetified-android-maps-utils-3.6.0\AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.maps.android:android-maps-utils:3.6.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0816ead6508568ec82385dee0679feef\transformed\jetified-android-maps-utils-3.6.0\AndroidManifest.xml:7:5-11:19
 	android:extractNativeLibs
-		INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] C:\Users\LENOVO\.gradle\caches\transforms-3\f2eee6e946e66164e30c1daf38b9b5d3\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:label
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:3:9-39
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:3:9-39
 	android:icon
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:5:9-43
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:5:9-43
 	android:name
-		INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:4:9-42
+		INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:4:9-42
 manifest
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:1:1-49:12
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:1:1-49:12
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:1:1-49:12
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:1:1-49:12
-MERGED from [:shared_preferences_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-35:12
-MERGED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-34:12
-MERGED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-14:12
-MERGED from [:google_maps_flutter_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\google_maps_flutter_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:flutter_plugin_android_lifecycle] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:geocoding_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:path_provider_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:1:1-49:12
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:1:1-49:12
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:1:1-49:12
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:1:1-49:12
+MERGED from [:shared_preferences_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-35:12
+MERGED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-34:12
+MERGED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-14:12
+MERGED from [:google_maps_flutter_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\google_maps_flutter_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_plugin_android_lifecycle] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:geocoding_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:17:1-44:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\LENOVO\.gradle\caches\transforms-3\438ef7bf843f8d4d1357d23ee1eede85\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\LENOVO\.gradle\caches\transforms-3\3a48bfc3efe31d3b1bb52bad58fdb686\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:2:1-6:12
@@ -114,107 +114,107 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\LENOVO\
 MERGED from [com.google.maps.android:android-maps-utils:3.6.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0816ead6508568ec82385dee0679feef\transformed\jetified-android-maps-utils-3.6.0\AndroidManifest.xml:2:1-13:12
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] C:\Users\LENOVO\.gradle\caches\transforms-3\5bc19d8c80faa5764769910ac8e180c0\transformed\jetified-relinker-1.4.5\AndroidManifest.xml:2:1-7:12
 	package
-		INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:1:11-69
 queries
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:39:5-44:15
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:39:5-44:15
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:30:5-34:15
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:30:5-34:15
 intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:40:9-43:18
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:40:9-43:18
 action#android.intent.action.PROCESS_TEXT
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:41:13-72
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:41:13-72
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:41:21-70
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:41:21-70
 data
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:42:13-50
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:42:13-50
 	android:mimeType
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:42:19-48
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:42:19-48
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:45:5-67
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:45:5-67
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:24:5-67
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:45:22-64
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:45:22-64
 uses-permission#android.permission.READ_MEDIA_IMAGES
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:46:5-76
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:46:5-76
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:46:22-73
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:46:22-73
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:47:5-80
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:47:5-80
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:47:22-77
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:47:22-77
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:48:5-65
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:48:5-65
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:48:22-62
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:48:22-62
 activity#com.example.coffee_app.MainActivity
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:6:9-27:20
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:6:9-27:20
 	android:launchMode
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:9:13-43
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:9:13-43
 	android:hardwareAccelerated
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:13:13-47
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:13:13-47
 	android:windowSoftInputMode
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:14:13-55
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:14:13-55
 	android:exported
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:8:13-36
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:8:13-36
 	android:configChanges
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:12:13-163
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:12:13-163
 	android:theme
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:11:13-47
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:11:13-47
 	android:taskAffinity
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:10:13-36
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:10:13-36
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:7:13-41
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:7:13-41
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:19:13-22:72
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:19:13-22:72
 	android:resource
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:21:15-52
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:21:15-52
 	android:value
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:22:15-70
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:22:15-70
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:20:15-60
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:20:15-60
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:23:13-26:29
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:23:13-26:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:24:17-68
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:24:17-68
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:24:25-66
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:25:17-76
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:25:17-76
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:25:27-74
 meta-data#flutterEmbedding
-ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:30:9-32:33
+ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:30:9-32:33
 	android:value
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:32:13-30
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:32:13-30
 	android:name
-		ADDED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:31:13-44
+		ADDED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:31:13-44
 uses-sdk
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
-MERGED from [:shared_preferences_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:6:5-44
-MERGED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:6:5-44
-MERGED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:google_maps_flutter_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\google_maps_flutter_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:google_maps_flutter_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\google_maps_flutter_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_plugin_android_lifecycle] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_plugin_android_lifecycle] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:geocoding_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:geocoding_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
+MERGED from [:shared_preferences_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:6:5-44
+MERGED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:6:5-44
+MERGED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:google_maps_flutter_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\google_maps_flutter_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:google_maps_flutter_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\google_maps_flutter_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:geocoding_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:geocoding_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\LENOVO\.gradle\caches\transforms-3\438ef7bf843f8d4d1357d23ee1eede85\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
@@ -334,77 +334,77 @@ MERGED from [com.google.maps.android:android-maps-utils:3.6.0] C:\Users\LENOVO\.
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] C:\Users\LENOVO\.gradle\caches\transforms-3\5bc19d8c80faa5764769910ac8e180c0\transformed\jetified-relinker-1.4.5\AndroidManifest.xml:5:5-43
 MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] C:\Users\LENOVO\.gradle\caches\transforms-3\5bc19d8c80faa5764769910ac8e180c0\transformed\jetified-relinker-1.4.5\AndroidManifest.xml:5:5-43
 	android:targetSdkVersion
-		INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml
 provider#dev.fluttercommunity.plus.share.ShareFileProvider
-ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:13:9-21:20
+ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:13:9-21:20
 	android:grantUriPermissions
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-47
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-47
 	android:authorities
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-74
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-74
 	android:exported
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-37
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-37
 	android:name
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-77
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-77
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
+ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
 	android:resource
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
 	android:name
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
 receiver#dev.fluttercommunity.plus.share.SharePlusPendingIntent
-ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:26:9-32:20
+ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:26:9-32:20
 	android:exported
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-37
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-82
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-82
 intent-filter#action:name:EXTRA_CHOSEN_COMPONENT
-ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:29:13-31:29
+ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:29:13-31:29
 action#EXTRA_CHOSEN_COMPONENT
-ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-65
+ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-65
 	android:name
-		ADDED from [:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:25-62
+		ADDED from [:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:25-62
 provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
-ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:9-17:20
+ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:9-17:20
 	android:grantUriPermissions
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-47
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-47
 	android:authorities
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
 	android:exported
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
 	android:name
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-82
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-82
 service#com.google.android.gms.metadata.ModuleDependencies
-ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-31:19
+ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-31:19
 	android:enabled
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:21:13-36
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:21:13-36
 	android:exported
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:22:13-37
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:22:13-37
 	tools:ignore
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:23:13-40
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:23:13-40
 	android:name
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-78
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-78
 intent-filter#action:name:com.google.android.gms.metadata.MODULE_DEPENDENCIES
-ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:24:13-26:29
+ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:24:13-26:29
 action#com.google.android.gms.metadata.MODULE_DEPENDENCIES
-ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:17-94
+ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:17-94
 	android:name
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:25-91
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:25-91
 meta-data#photopicker_activity:0:required
-ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-30:36
+ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-30:36
 	android:value
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-33
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-33
 	android:name
-		ADDED from [:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-63
+		ADDED from [:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-63
 activity#io.flutter.plugins.urllauncher.WebViewActivity
-ADDED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-11:74
+ADDED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-11:74
 	android:exported
-		ADDED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-37
+		ADDED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-37
 	android:theme
-		ADDED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-71
+		ADDED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-71
 	android:name
-		ADDED from [:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-74
+		ADDED from [:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-74
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
 	android:name

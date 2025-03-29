@@ -407,9 +407,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:image_picker_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\.transforms\c5dd94676ceba0353ab1a1aaf31613b9\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\.transforms\c5dd94676ceba0353ab1a1aaf31613b9\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\.transforms\ef9ea3a3b0c40804417fc0670ad575a2\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\.transforms\ef9ea3a3b0c40804417fc0670ad575a2\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.imagepicker:image_picker_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\.transforms\c5dd94676ceba0353ab1a1aaf31613b9\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\.transforms\ef9ea3a3b0c40804417fc0670ad575a2\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

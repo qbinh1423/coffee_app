@@ -395,9 +395,9 @@
       resolved="com.google.guava:listenablefuture:1.0"/>
   <library
       name=":@@:path_provider_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\.transforms\9737b629120b2dc0c021aa8a27fd0c67\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\.transforms\9737b629120b2dc0c021aa8a27fd0c67\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\.transforms\015ecc9687e5606342c46a718018b3c7\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\.transforms\015ecc9687e5606342c46a718018b3c7\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.pathprovider:path_provider_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\.transforms\9737b629120b2dc0c021aa8a27fd0c67\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\.transforms\015ecc9687e5606342c46a718018b3c7\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

@@ -33,10 +33,10 @@ io.flutter.plugins.sharedpreferences.shared_preferences_android-core-1.13.1-31 C
 io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-activity-ktx-1.8.1-32 C:\Users\LENOVO\.gradle\caches\transforms-3\f64bdfd9bb7fef1173760097fcbf45c6\transformed\jetified-activity-ktx-1.8.1\res
 io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-activity-1.8.1-33 C:\Users\LENOVO\.gradle\caches\transforms-3\f78aade71b906402087af994a2e6cd54\transformed\jetified-activity-1.8.1\res
 io.flutter.plugins.sharedpreferences.shared_preferences_android-fragment-1.7.1-34 C:\Users\LENOVO\.gradle\caches\transforms-3\f8f8358889c17e2c1295bec3da1e5a4c\transformed\fragment-1.7.1\res
-io.flutter.plugins.sharedpreferences.shared_preferences_android-main-35 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\android\src\main\res
-io.flutter.plugins.sharedpreferences.shared_preferences_android-release-36 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.7\android\src\release\res
-io.flutter.plugins.sharedpreferences.shared_preferences_android-pngs-37 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\generated\res\pngs\release
-io.flutter.plugins.sharedpreferences.shared_preferences_android-resValues-38 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\generated\res\resValues\release
-io.flutter.plugins.sharedpreferences.shared_preferences_android-mergeReleaseResources-39 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
-io.flutter.plugins.sharedpreferences.shared_preferences_android-mergeReleaseResources-40 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-io.flutter.plugins.sharedpreferences.shared_preferences_android-merged_res-41 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\intermediates\merged_res\release
+io.flutter.plugins.sharedpreferences.shared_preferences_android-main-35 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.8\android\src\main\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-release-36 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\shared_preferences_android-2.4.8\android\src\release\res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-pngs-37 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\generated\res\pngs\release
+io.flutter.plugins.sharedpreferences.shared_preferences_android-resValues-38 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\generated\res\resValues\release
+io.flutter.plugins.sharedpreferences.shared_preferences_android-mergeReleaseResources-39 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.sharedpreferences.shared_preferences_android-mergeReleaseResources-40 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.sharedpreferences.shared_preferences_android-merged_res-41 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\intermediates\merged_res\release

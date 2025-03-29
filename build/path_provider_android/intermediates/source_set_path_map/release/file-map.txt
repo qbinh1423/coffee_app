@@ -20,8 +20,8 @@ io.flutter.plugins.pathprovider.path_provider_android-jetified-activity-1.8.1-18
 io.flutter.plugins.pathprovider.path_provider_android-fragment-1.7.1-19 C:\Users\LENOVO\.gradle\caches\transforms-3\f8f8358889c17e2c1295bec3da1e5a4c\transformed\fragment-1.7.1\res
 io.flutter.plugins.pathprovider.path_provider_android-main-20 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\android\src\main\res
 io.flutter.plugins.pathprovider.path_provider_android-release-21 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.15\android\src\release\res
-io.flutter.plugins.pathprovider.path_provider_android-pngs-22 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\generated\res\pngs\release
-io.flutter.plugins.pathprovider.path_provider_android-resValues-23 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\generated\res\resValues\release
-io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-24 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
-io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-25 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-io.flutter.plugins.pathprovider.path_provider_android-merged_res-26 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\intermediates\merged_res\release
+io.flutter.plugins.pathprovider.path_provider_android-pngs-22 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\generated\res\pngs\release
+io.flutter.plugins.pathprovider.path_provider_android-resValues-23 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\generated\res\resValues\release
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-24 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-25 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.pathprovider.path_provider_android-merged_res-26 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\intermediates\merged_res\release

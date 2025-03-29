@@ -404,9 +404,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:url_launcher_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\.transforms\ad9fa1495bc3b433a68f334a7f7229fc\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\.transforms\ad9fa1495bc3b433a68f334a7f7229fc\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\.transforms\c644a684c3de001007777725236e73b7\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\.transforms\c644a684c3de001007777725236e73b7\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.urllauncher:url_launcher_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\.transforms\ad9fa1495bc3b433a68f334a7f7229fc\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\.transforms\c644a684c3de001007777725236e73b7\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

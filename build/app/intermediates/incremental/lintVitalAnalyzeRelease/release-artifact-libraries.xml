@@ -1,13 +1,13 @@
 <libraries>
   <library
-      name="__local_aars__:C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app\intermediates\flutter\release\libs.jar:unspecified@jar"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app\intermediates\flutter\release\libs.jar"
-      resolved="__local_aars__:C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app\intermediates\flutter\release\libs.jar:unspecified"/>
+      name="__local_aars__:E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app\intermediates\flutter\release\libs.jar:unspecified@jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app\intermediates\flutter\release\libs.jar"
+      resolved="__local_aars__:E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app\intermediates\flutter\release\libs.jar:unspecified"/>
   <library
       name=":@@:shared_preferences_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\.transforms\93a907834ff7cdac80e2a560d30dc50e\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\.transforms\93a907834ff7cdac80e2a560d30dc50e\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\.transforms\79bb0413469ea4a90273d385aed5e5fe\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\.transforms\79bb0413469ea4a90273d385aed5e5fe\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.sharedpreferences:shared_preferences_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\.transforms\93a907834ff7cdac80e2a560d30dc50e\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\.transforms\79bb0413469ea4a90273d385aed5e5fe\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -22,9 +22,9 @@
       resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0"/>
   <library
       name=":@@:flutter_plugin_android_lifecycle::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\.transforms\2e4bd0e64d4ae9ac3fc44f99442e743e\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\.transforms\2e4bd0e64d4ae9ac3fc44f99442e743e\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\.transforms\854915ebd89a61b9d6feb7ee1a2caae4\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\.transforms\854915ebd89a61b9d6feb7ee1a2caae4\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\.transforms\2e4bd0e64d4ae9ac3fc44f99442e743e\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\.transforms\854915ebd89a61b9d6feb7ee1a2caae4\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -35,9 +35,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:geocoding_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\.transforms\b2575d052213bb8d71b582f3e65e3d0b\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\.transforms\b2575d052213bb8d71b582f3e65e3d0b\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\.transforms\d99e626faa38337d7e1f5b8e2c62cc60\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\.transforms\d99e626faa38337d7e1f5b8e2c62cc60\transformed\out\jars\libs\R.jar"
       resolved="com.baseflow.geocoding:geocoding_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\.transforms\b2575d052213bb8d71b582f3e65e3d0b\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\.transforms\d99e626faa38337d7e1f5b8e2c62cc60\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -48,9 +48,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:google_maps_flutter_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\google_maps_flutter_android\.transforms\b91cac1de0dcd6eb8b37bc5cfe2bc50c\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\google_maps_flutter_android\.transforms\b91cac1de0dcd6eb8b37bc5cfe2bc50c\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\google_maps_flutter_android\.transforms\59be929fcf8c6092c518faeb5e043f24\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\google_maps_flutter_android\.transforms\59be929fcf8c6092c518faeb5e043f24\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.googlemaps:google_maps_flutter_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\google_maps_flutter_android\.transforms\b91cac1de0dcd6eb8b37bc5cfe2bc50c\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\google_maps_flutter_android\.transforms\59be929fcf8c6092c518faeb5e043f24\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -61,9 +61,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:image_picker_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\.transforms\c5dd94676ceba0353ab1a1aaf31613b9\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\.transforms\c5dd94676ceba0353ab1a1aaf31613b9\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\.transforms\ef9ea3a3b0c40804417fc0670ad575a2\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\.transforms\ef9ea3a3b0c40804417fc0670ad575a2\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.imagepicker:image_picker_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\.transforms\c5dd94676ceba0353ab1a1aaf31613b9\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\.transforms\ef9ea3a3b0c40804417fc0670ad575a2\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -74,9 +74,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:path_provider_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\.transforms\9737b629120b2dc0c021aa8a27fd0c67\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\.transforms\9737b629120b2dc0c021aa8a27fd0c67\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\.transforms\015ecc9687e5606342c46a718018b3c7\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\.transforms\015ecc9687e5606342c46a718018b3c7\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.pathprovider:path_provider_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\path_provider_android\.transforms\9737b629120b2dc0c021aa8a27fd0c67\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\path_provider_android\.transforms\015ecc9687e5606342c46a718018b3c7\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -87,9 +87,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:share_plus::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\.transforms\1658d93d568413989e3380876df92efe\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\.transforms\1658d93d568413989e3380876df92efe\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\.transforms\fc7712a1faa99cad87a1d87f278c0b9c\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\.transforms\fc7712a1faa99cad87a1d87f278c0b9c\transformed\out\jars\libs\R.jar"
       resolved="dev.fluttercommunity.plus.share:share_plus:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\.transforms\1658d93d568413989e3380876df92efe\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\.transforms\fc7712a1faa99cad87a1d87f278c0b9c\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -100,9 +100,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:url_launcher_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\.transforms\ad9fa1495bc3b433a68f334a7f7229fc\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\.transforms\ad9fa1495bc3b433a68f334a7f7229fc\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\.transforms\c644a684c3de001007777725236e73b7\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\.transforms\c644a684c3de001007777725236e73b7\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.urllauncher:url_launcher_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\.transforms\ad9fa1495bc3b433a68f334a7f7229fc\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\.transforms\c644a684c3de001007777725236e73b7\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

@@ -1,9 +1,9 @@
 <libraries>
   <library
       name=":@@:flutter_plugin_android_lifecycle::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\.transforms\2e4bd0e64d4ae9ac3fc44f99442e743e\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\.transforms\2e4bd0e64d4ae9ac3fc44f99442e743e\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\.transforms\854915ebd89a61b9d6feb7ee1a2caae4\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\.transforms\854915ebd89a61b9d6feb7ee1a2caae4\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\.transforms\2e4bd0e64d4ae9ac3fc44f99442e743e\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\.transforms\854915ebd89a61b9d6feb7ee1a2caae4\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

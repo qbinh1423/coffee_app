@@ -399,9 +399,9 @@
       resolved="com.google.guava:listenablefuture:1.0"/>
   <library
       name=":@@:share_plus::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\.transforms\1658d93d568413989e3380876df92efe\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\.transforms\1658d93d568413989e3380876df92efe\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\.transforms\fc7712a1faa99cad87a1d87f278c0b9c\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\.transforms\fc7712a1faa99cad87a1d87f278c0b9c\transformed\out\jars\libs\R.jar"
       resolved="dev.fluttercommunity.plus.share:share_plus:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\.transforms\1658d93d568413989e3380876df92efe\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\.transforms\fc7712a1faa99cad87a1d87f278c0b9c\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

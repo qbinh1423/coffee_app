@@ -1,4 +1,4 @@
-# The proguard configuration file for the following section is C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.2.0
+# The proguard configuration file for the following section is E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.2.0
 # This is a configuration file for ProGuard.
 # http://proguard.sourceforge.net/index.html#manual/usage.html
 #
@@ -117,7 +117,7 @@
 # These classes are duplicated between android.jar and core-lambda-stubs.jar.
 -dontnote java.lang.invoke.**
 
-# End of content from C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.2.0
+# End of content from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.2.0
 # The proguard configuration file for the following section is C:\src\flutter_windows_3.10.6-stable\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro
 # Build the ephemeral app in a module project.
 # Prevents: Warning: library class <plugin-package> depends on program class io.flutter.plugin.**
@@ -135,7 +135,7 @@
 -keep,allowshrinking,allowobfuscation class <1>
 
 # End of content from C:\src\flutter_windows_3.10.6-stable\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro
-# The proguard configuration file for the following section is C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
+# The proguard configuration file for the following section is E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
 -keep class android.app.Application { <init>(); }
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.profileinstaller.ProfileInstallReceiver { <init>(); }
@@ -200,8 +200,8 @@
 -keep class com.google.maps.android.ui.RotationLayout { <init>(android.content.Context, android.util.AttributeSet); }
 
 
-# End of content from C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
-# The proguard configuration file for the following section is C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
+# End of content from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app\intermediates\aapt_proguard_file\release\aapt_rules.txt
+# The proguard configuration file for the following section is E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
 # The point of this package is to specify that a dependent plugin intends to
 # use the AndroidX lifecycle classes. Make sure no R8 heuristics shrink classes
 # brought in by the embedding's pom.
@@ -212,7 +212,7 @@
 # https://issuetracker.google.com/issues/142778206.
 -keep class androidx.lifecycle.DefaultLifecycleObserver
 
-# End of content from C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
+# End of content from E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\flutter_plugin_android_lifecycle\intermediates\consumer_proguard_dir\release\lib0\proguard.txt
 # The proguard configuration file for the following section is C:\Users\LENOVO\.gradle\caches\transforms-3\438ef7bf843f8d4d1357d23ee1eede85\transformed\jetified-play-services-base-18.0.1\proguard.txt
 # b/35135904 Ensure that proguard will not strip the mResultGuardian.
 -keepclassmembers class com.google.android.gms.common.api.internal.BasePendingResult {

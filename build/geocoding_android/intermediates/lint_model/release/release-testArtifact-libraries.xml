@@ -399,9 +399,9 @@
       resolved="com.google.guava:listenablefuture:1.0"/>
   <library
       name=":@@:geocoding_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\.transforms\b2575d052213bb8d71b582f3e65e3d0b\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\.transforms\b2575d052213bb8d71b582f3e65e3d0b\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\.transforms\d99e626faa38337d7e1f5b8e2c62cc60\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\.transforms\d99e626faa38337d7e1f5b8e2c62cc60\transformed\out\jars\libs\R.jar"
       resolved="com.baseflow.geocoding:geocoding_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\geocoding_android\.transforms\b2575d052213bb8d71b582f3e65e3d0b\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\geocoding_android\.transforms\d99e626faa38337d7e1f5b8e2c62cc60\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

@@ -757,9 +757,9 @@
       resolved="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.9.22"/>
   <library
       name=":@@:shared_preferences_android::release"
-      jars="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\.transforms\93a907834ff7cdac80e2a560d30dc50e\transformed\out\jars\classes.jar;C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\.transforms\93a907834ff7cdac80e2a560d30dc50e\transformed\out\jars\libs\R.jar"
+      jars="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\.transforms\79bb0413469ea4a90273d385aed5e5fe\transformed\out\jars\classes.jar;E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\.transforms\79bb0413469ea4a90273d385aed5e5fe\transformed\out\jars\libs\R.jar"
       resolved="io.flutter.plugins.sharedpreferences:shared_preferences_android:unspecified"
-      folder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\shared_preferences_android\.transforms\93a907834ff7cdac80e2a560d30dc50e\transformed\out"
+      folder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\shared_preferences_android\.transforms\79bb0413469ea4a90273d385aed5e5fe\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

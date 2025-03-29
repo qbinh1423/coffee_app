@@ -20,8 +20,8 @@ dev.fluttercommunity.plus.share.share_plus-jetified-activity-1.8.1-18 C:\Users\L
 dev.fluttercommunity.plus.share.share_plus-fragment-1.7.1-19 C:\Users\LENOVO\.gradle\caches\transforms-3\f8f8358889c17e2c1295bec3da1e5a4c\transformed\fragment-1.7.1\res
 dev.fluttercommunity.plus.share.share_plus-main-20 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\src\main\res
 dev.fluttercommunity.plus.share.share_plus-release-21 C:\Users\LENOVO\AppData\Local\Pub\Cache\hosted\pub.dev\share_plus-10.1.4\android\src\release\res
-dev.fluttercommunity.plus.share.share_plus-pngs-22 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\generated\res\pngs\release
-dev.fluttercommunity.plus.share.share_plus-resValues-23 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\generated\res\resValues\release
-dev.fluttercommunity.plus.share.share_plus-mergeReleaseResources-24 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\incremental\release\mergeReleaseResources\merged.dir
-dev.fluttercommunity.plus.share.share_plus-mergeReleaseResources-25 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-dev.fluttercommunity.plus.share.share_plus-merged_res-26 C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_res\release
+dev.fluttercommunity.plus.share.share_plus-pngs-22 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\generated\res\pngs\release
+dev.fluttercommunity.plus.share.share_plus-resValues-23 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\generated\res\resValues\release
+dev.fluttercommunity.plus.share.share_plus-mergeReleaseResources-24 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\incremental\release\mergeReleaseResources\merged.dir
+dev.fluttercommunity.plus.share.share_plus-mergeReleaseResources-25 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+dev.fluttercommunity.plus.share.share_plus-merged_res-26 E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_res\release

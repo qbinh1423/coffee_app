@@ -1,11 +1,11 @@
 <lint-module
     format="1"
-    dir="C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app"
+    dir="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app"
     name=":app"
     type="APP"
     maven="android:app:"
     agpVersion="8.2.0"
-    buildFolder="C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\app"
+    buildFolder="E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\app"
     bootClassPath="C:\Users\LENOVO\AppData\Local\Android\sdk\platforms\android-35\android.jar;C:\Users\LENOVO\AppData\Local\Android\sdk\build-tools\34.0.0\core-lambda-stubs.jar"
     javaSourceLevel="1.8"
     compileTarget="android-35">

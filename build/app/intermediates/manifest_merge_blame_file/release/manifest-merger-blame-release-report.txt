@@ -15,16 +15,16 @@
 15         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 16    -->
 17    <queries>
-17-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:39:5-44:15
+17-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:39:5-44:15
 18        <intent>
-18-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:40:9-43:18
+18-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:40:9-43:18
 19            <action android:name="android.intent.action.PROCESS_TEXT" />
-19-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:41:13-72
-19-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:41:21-70
+19-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:41:13-72
+19-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:41:21-70
 20
 21            <data android:mimeType="text/plain" />
-21-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:42:13-50
-21-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:42:19-48
+21-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:42:13-50
+21-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:42:19-48
 22        </intent>
 23        <!-- Needs to be explicitly declared on Android R+ -->
 24        <package android:name="com.google.android.apps.maps" />
@@ -33,17 +33,17 @@
 25    </queries>
 26
 27    <uses-permission android:name="android.permission.INTERNET" />
-27-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:45:5-67
-27-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:45:22-64
+27-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:45:5-67
+27-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:45:22-64
 28    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-28-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:46:5-76
-28-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:46:22-73
+28-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:46:5-76
+28-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:46:22-73
 29    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-29-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:47:5-80
-29-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:47:22-77
+29-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:47:5-80
+29-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:47:22-77
 30    <uses-permission android:name="android.permission.CAMERA" />
-30-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:48:5-65
-30-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:48:22-62
+30-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:48:5-65
+30-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:48:22-62
 31    <!-- Include required permissions for Google Maps API to run. -->
 32    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 32-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
@@ -69,32 +69,32 @@
 43
 44    <application
 45        android:name="android.app.Application"
-45-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:4:9-42
+45-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:4:9-42
 46        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 46-->[androidx.core:core:1.13.1] C:\Users\LENOVO\.gradle\caches\transforms-3\f2eee6e946e66164e30c1daf38b9b5d3\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 47        android:extractNativeLibs="true"
 48        android:icon="@mipmap/ic_launcher"
-48-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:5:9-43
+48-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:5:9-43
 49        android:label="BT Coffee Info" >
-49-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:3:9-39
+49-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:3:9-39
 50        <activity
-50-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:6:9-27:20
+50-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:6:9-27:20
 51            android:name="com.example.coffee_app.MainActivity"
-51-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:7:13-41
+51-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:7:13-41
 52            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-52-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:12:13-163
+52-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:12:13-163
 53            android:exported="true"
-53-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:8:13-36
+53-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:8:13-36
 54            android:hardwareAccelerated="true"
-54-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:13:13-47
+54-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:13:13-47
 55            android:launchMode="singleTop"
-55-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:9:13-43
+55-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:9:13-43
 56            android:taskAffinity=""
-56-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:10:13-36
+56-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:10:13-36
 57            android:theme="@style/LaunchTheme"
-57-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:11:13-47
+57-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:11:13-47
 58            android:windowSoftInputMode="adjustResize" >
-58-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:14:13-55
+58-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:14:13-55
 59
 60            <!--
 61                 Specifies an Android theme to apply to this Activity as soon as
@@ -103,23 +103,23 @@
 64                 to determine the Window background behind the Flutter UI.
 65            -->
 66            <meta-data
-66-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:19:13-22:72
+66-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:19:13-22:72
 67                android:name="com.google.android.geo.API_KEY"
-67-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:20:15-60
+67-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:20:15-60
 68                android:resource="@style/NormalTheme"
-68-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:21:15-52
+68-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:21:15-52
 69                android:value="AIzaSyBgUx09Oy3je98DgORwFJnRR3iYx-x9Q38" />
-69-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:22:15-70
+69-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:22:15-70
 70
 71            <intent-filter>
-71-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:23:13-26:29
+71-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:23:13-26:29
 72                <action android:name="android.intent.action.MAIN" />
-72-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:24:17-68
-72-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:24:25-66
+72-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:24:17-68
+72-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:24:25-66
 73
 74                <category android:name="android.intent.category.LAUNCHER" />
-74-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:25:17-76
-74-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:25:27-74
+74-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:25:17-76
+74-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:25:27-74
 75            </intent-filter>
 76        </activity>
 77        <!--
@@ -127,98 +127,98 @@
 79             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 80        -->
 81        <meta-data
-81-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:30:9-32:33
+81-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:30:9-32:33
 82            android:name="flutterEmbedding"
-82-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:31:13-44
+82-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:31:13-44
 83            android:value="2" />
-83-->C:\Users\LENOVO\Pictures\Dowload\coffee_app\android\app\src\main\AndroidManifest.xml:32:13-30
+83-->E:\MobilePrograming\project\ct312hm01-project-qbinh1423\android\app\src\main\AndroidManifest.xml:32:13-30
 84        <!--
 85           Declares a provider which allows us to store files to share in
 86           '.../caches/share_plus' and grant the receiving action access
 87        -->
 88        <provider
-88-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:13:9-21:20
+88-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:13:9-21:20
 89            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
-89-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-77
+89-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-77
 90            android:authorities="com.example.coffee_app.flutter.share_provider"
-90-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-74
+90-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-74
 91            android:exported="false"
-91-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-37
+91-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-37
 92            android:grantUriPermissions="true" >
-92-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-47
+92-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-47
 93            <meta-data
-93-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
+93-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
 94                android:name="android.support.FILE_PROVIDER_PATHS"
-94-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
+94-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
 95                android:resource="@xml/flutter_share_file_paths" />
-95-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
+95-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
 96        </provider>
 97        <!--
 98           This manifest declared broadcast receiver allows us to use an explicit
 99           Intent when creating a PendingItent to be informed of the user's choice
 100        -->
 101        <receiver
-101-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:26:9-32:20
+101-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:26:9-32:20
 102            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
-102-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-82
+102-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-82
 103            android:exported="false" >
-103-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-37
+103-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-37
 104            <intent-filter>
-104-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:29:13-31:29
+104-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:29:13-31:29
 105                <action android:name="EXTRA_CHOSEN_COMPONENT" />
-105-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-65
-105-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:25-62
+105-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-65
+105-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:30:25-62
 106            </intent-filter>
 107        </receiver>
 108
 109        <provider
-109-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:9-17:20
+109-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:9-17:20
 110            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-110-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-82
+110-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-82
 111            android:authorities="com.example.coffee_app.flutter.image_provider"
-111-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+111-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
 112            android:exported="false"
-112-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
+112-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
 113            android:grantUriPermissions="true" >
-113-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-47
+113-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-47
 114            <meta-data
-114-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
+114-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-20:68
 115                android:name="android.support.FILE_PROVIDER_PATHS"
-115-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
+115-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:19:17-67
 116                android:resource="@xml/flutter_image_picker_file_paths" />
-116-->[:share_plus] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
+116-->[:share_plus] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\share_plus\intermediates\merged_manifest\release\AndroidManifest.xml:20:17-65
 117        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
 118        <service
-118-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-31:19
+118-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-31:19
 119            android:name="com.google.android.gms.metadata.ModuleDependencies"
-119-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-78
+119-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-78
 120            android:enabled="false"
-120-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:21:13-36
+120-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:21:13-36
 121            android:exported="false" >
-121-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:22:13-37
+121-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:22:13-37
 122            <intent-filter>
-122-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:24:13-26:29
+122-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:24:13-26:29
 123                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-123-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:17-94
-123-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:25-91
+123-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:17-94
+123-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:25:25-91
 124            </intent-filter>
 125
 126            <meta-data
-126-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-30:36
+126-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-30:36
 127                android:name="photopicker_activity:0:required"
-127-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-63
+127-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-63
 128                android:value="" />
-128-->[:image_picker_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-33
+128-->[:image_picker_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:30:17-33
 129        </service>
 130
 131        <activity
-131-->[:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-11:74
+131-->[:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:8:9-11:74
 132            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-132-->[:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-74
+132-->[:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:9:13-74
 133            android:exported="false"
-133-->[:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-37
+133-->[:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:13-37
 134            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" /> <!-- Needs to be explicitly declared on P+ -->
-134-->[:url_launcher_android] C:\Users\LENOVO\Pictures\Dowload\coffee_app\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-71
+134-->[:url_launcher_android] E:\MobilePrograming\project\ct312hm01-project-qbinh1423\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-71
 135        <uses-library
 135-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\LENOVO\.gradle\caches\transforms-3\0be00c7a87c4e9395a12ab8776fdb50f\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:39:9-41:40
 136            android:name="org.apache.http.legacy"
