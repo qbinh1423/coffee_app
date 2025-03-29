@@ -59,7 +59,6 @@ class Drink {
       'ingredients': ingredients,
       'caffeine': caffeine,
       'description': description,
-      'userId': userId,
       'imageUrl': imageUrl,
     };
   }
