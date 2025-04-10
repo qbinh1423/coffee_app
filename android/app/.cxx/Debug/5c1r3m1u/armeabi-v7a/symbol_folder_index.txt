@@ -1,0 +1,1 @@
+C:\xampp\htdocs\coffee_app\build\app\intermediates\cxx\Debug\5c1r3m1u\obj\armeabi-v7a
